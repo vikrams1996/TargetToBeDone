@@ -1,0 +1,64 @@
+﻿@model IEnumerable<mallform.Models.Tenant>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Shop Name</th>
+            <th scope="col">Brand Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Contact No</th>
+            <th scope="col">Pan No</th>
+            
+        </tr>
+    </thead>
+
+    @foreach (var tenant in Model)
+    {
+
+
+
+        <tbody>
+            <tr>
+
+                
+                <td>@tenant.shopName</td>
+                <td>@tenant.brandName</td>
+                <td>@tenant.Address</td>
+                <td>@tenant.mobileNo</td>
+                <td>@tenant.panNo</td>
+                <td>@Html.ActionLink("Update", "Update", "LeasingForm", new { id = tenant.Id }, null) </td>
+                <td>@Html.ActionLink("Delete", "Delete", "LeasingForm", new { id=tenant.Id }, null)</td>
+                
+                
+                    
+               
+
+
+              
+
+
+
+
+            </tr>
+
+        </tbody>
+
+
+
+
+
+    }
+</table>
+
+   
+
+
+
+
+
+
+

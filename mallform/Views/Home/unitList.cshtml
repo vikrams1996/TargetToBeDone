@@ -1,0 +1,54 @@
+﻿@model IEnumerable<mallform.Models.Unit>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List Of Units</h2>
+
+
+
+    
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Shop Size (In Square Feet)</th>
+            <th scope="col">Floor</th>
+            <th scope="col">Shop Number</th>
+         
+        </tr>
+    </thead>
+    @foreach (var unit in Model)
+    {
+
+
+
+        <tbody>
+            <tr>
+                
+                <td>@Html.ActionLink(unit.Size, "Edit", "Unit", new { id = unit.Id }, null)</td>
+                <td>@unit.Floor.Name</td>
+                <td>@unit.Shop.Name</td>
+              
+              
+
+                <td>@Html.ActionLink("Delete", "Delete", "Unit", new { id =unit.Id }, null)</td>
+
+
+
+
+
+
+
+
+            </tr>
+        </tbody>
+
+
+
+
+
+    }
+</table>

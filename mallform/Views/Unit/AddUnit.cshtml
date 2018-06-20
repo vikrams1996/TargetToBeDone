@@ -1,0 +1,33 @@
+﻿@model mallform.ViewModel.UnitFormViewModel
+@{
+    ViewBag.Title = "AddUnit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddUnit</h2>
+
+@using (Html.BeginForm("Save", "Unit"))
+
+{
+
+    @Html.LabelFor(m => m.Unit.Size)
+    @Html.TextBoxFor(m => m.Unit.Size, new { @class = "form-control " })
+    @Html.ValidationMessageFor(m => m.Unit.Size)
+
+    @Html.LabelFor(m => m.Unit.floorId)
+    @Html.DropDownListFor(m => m.Unit.floorId, new SelectList(Model.Floors, "Id", "Name"), "",
+        new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Unit.floorId)
+
+    @Html.LabelFor(m => m.Unit.shopId)
+    @Html.DropDownListFor(m => m.Unit.shopId, new SelectList(Model.Shops, "Id", "Name"), "",
+        new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Unit.shopId)
+
+    @Html.HiddenFor(m=>m.Unit.Id)
+
+    
+
+    <button type="submit" class="btn btn-primary">Add Unit</button>
+
+}

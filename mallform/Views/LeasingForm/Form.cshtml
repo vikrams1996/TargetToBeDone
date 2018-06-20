@@ -1,0 +1,66 @@
+﻿
+@model mallform.ViewModel.TenantFormViewModel
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2><strong>Tenant Enquiry Form</strong></h2>
+
+
+
+
+@using (Html.BeginForm("Form", "LeasingForm"))
+
+{
+
+    <label>
+        Shop Name
+    </label>
+    @Html.TextBoxFor(m => m.shopName, new { @class = "form-control " })
+
+    @Html.ValidationMessageFor(m=>m.shopName)
+    <br>
+    
+
+
+    <label>
+        Brand Name
+    </label>
+    @Html.TextBoxFor(m => m.brandName, new { @class = "form-control " })
+
+    @Html.ValidationMessageFor(m=>m.brandName)
+    <br>
+    
+    <label>
+        Address
+    </label>
+
+    @Html.TextBoxFor(m => m.Address, new { @class = "form-control " })
+
+    @Html.ValidationMessageFor(m=>m.Address)
+    <br>
+    
+    <label>
+        Mobile No
+    </label>
+
+    @Html.TextBoxFor(m => m.mobileNo, new { @class = "form-control " , placeholder = "eg 7838xxxxxx" })
+
+    @Html.ValidationMessageFor(m=>m.mobileNo)
+    <br>
+    
+    <label>
+        Pan No
+    </label>
+
+    @Html.TextBoxFor(m => m.panNo, new { @class = "form-control " })
+
+    @Html.ValidationMessageFor(m=>m.panNo)
+    <br>
+    
+
+
+    <button type="submit" class="btn btn-primary">Submit </button>
+
+
+}
