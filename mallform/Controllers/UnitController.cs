@@ -78,12 +78,25 @@ namespace mallform.Controllers
         }
 
 
+        //DELETE A UNIT
 
+        public ActionResult Delete(int id)
 
-      
+        {
 
+            _Context.Unit.Remove(_Context.Unit.Find(id));
+
+            _Context.SaveChanges();
+
+            return RedirectToAction("unitList", "Home");
 
         }
+
+
+
+
+
     }
+}
 
    

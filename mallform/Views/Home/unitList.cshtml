@@ -28,15 +28,14 @@
         <tbody>
             <tr>
                 
-                <td>@Html.ActionLink(unit.Size, "Edit", "Unit", new { id = unit.Id }, null)</td>
+                <td>@unit.Size</td>
                 <td>@unit.Floor.Name</td>
                 <td>@unit.Shop.Name</td>
-              
-              
-
+                <td>@Html.ActionLink("Update", "Edit", "Unit", new { id = unit.Id }, null)</td>
                 <td>@Html.ActionLink("Delete", "Delete", "Unit", new { id =unit.Id }, null)</td>
 
-
+              
+                
 
 
 
