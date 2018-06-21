@@ -74,7 +74,7 @@ namespace mallform.Controllers
 
 
             };
-            return View("AddUnit", viewModel);
+            return View("EditUnit", viewModel);
         }
 
 

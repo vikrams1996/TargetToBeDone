@@ -4,11 +4,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>List Of Units</h2>
+<h2><strong>Unit List</strong></h2>
+<br>
 
-
-
-    
+    @Html.ActionLink("Add Unit", "AddUnit", "Unit", null, new { @class = "btn btn-primary btn-large" })
+<br>
+<br>
 
 
 <table class="table">
@@ -31,9 +32,9 @@
                 <td>@unit.Size</td>
                 <td>@unit.Floor.Name</td>
                 <td>@unit.Shop.Name</td>
-                <td>@Html.ActionLink("Update", "Edit", "Unit", new { id = unit.Id }, null)</td>
+                <td>@Html.ActionLink("Edit Unit", "Edit", "Unit", new { id = unit.Id }, null)</td>
                 <td>@Html.ActionLink("Delete", "Delete", "Unit", new { id =unit.Id }, null)</td>
-
+               
               
                 
 

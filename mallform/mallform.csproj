@@ -312,6 +312,7 @@
     <Content Include="Views\LeasingForm\Update.cshtml" />
     <Content Include="Views\Home\unitList.cshtml" />
     <Content Include="Views\Unit\AddUnit.cshtml" />
+    <Content Include="Views\Unit\EditUnit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
