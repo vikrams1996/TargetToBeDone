@@ -203,30 +203,6 @@
     <Compile Include="Migrations\201806131128316_TaleKeysIdentified.Designer.cs">
       <DependentUpon>201806131128316_TaleKeysIdentified.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806200632004_ShopAndFloorDropped.cs" />
-    <Compile Include="Migrations\201806200632004_ShopAndFloorDropped.Designer.cs">
-      <DependentUpon>201806200632004_ShopAndFloorDropped.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806200635179_ShopAndFloor.cs" />
-    <Compile Include="Migrations\201806200635179_ShopAndFloor.Designer.cs">
-      <DependentUpon>201806200635179_ShopAndFloor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806200636369_FloorShopInUnit.cs" />
-    <Compile Include="Migrations\201806200636369_FloorShopInUnit.Designer.cs">
-      <DependentUpon>201806200636369_FloorShopInUnit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806201506121_IDinUNITS.cs" />
-    <Compile Include="Migrations\201806201506121_IDinUNITS.Designer.cs">
-      <DependentUpon>201806201506121_IDinUNITS.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806201510313_dropId.cs" />
-    <Compile Include="Migrations\201806201510313_dropId.Designer.cs">
-      <DependentUpon>201806201510313_dropId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806201511495_IDSagain.cs" />
-    <Compile Include="Migrations\201806201511495_IDSagain.Designer.cs">
-      <DependentUpon>201806201511495_IDSagain.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201806201513010_iddropped.cs" />
     <Compile Include="Migrations\201806201513010_iddropped.Designer.cs">
       <DependentUpon>201806201513010_iddropped.cs</DependentUpon>
@@ -238,6 +214,10 @@
     <Compile Include="Migrations\201806201542095_shopID.cs" />
     <Compile Include="Migrations\201806201542095_shopID.Designer.cs">
       <DependentUpon>201806201542095_shopID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806210634133_OverrideUnitAnnotations.cs" />
+    <Compile Include="Migrations\201806210634133_OverrideUnitAnnotations.Designer.cs">
+      <DependentUpon>201806210634133_OverrideUnitAnnotations.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -345,24 +325,6 @@
     <EmbeddedResource Include="Migrations\201806131128316_TaleKeysIdentified.resx">
       <DependentUpon>201806131128316_TaleKeysIdentified.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806200632004_ShopAndFloorDropped.resx">
-      <DependentUpon>201806200632004_ShopAndFloorDropped.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806200635179_ShopAndFloor.resx">
-      <DependentUpon>201806200635179_ShopAndFloor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806200636369_FloorShopInUnit.resx">
-      <DependentUpon>201806200636369_FloorShopInUnit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806201506121_IDinUNITS.resx">
-      <DependentUpon>201806201506121_IDinUNITS.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806201510313_dropId.resx">
-      <DependentUpon>201806201510313_dropId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806201511495_IDSagain.resx">
-      <DependentUpon>201806201511495_IDSagain.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806201513010_iddropped.resx">
       <DependentUpon>201806201513010_iddropped.cs</DependentUpon>
     </EmbeddedResource>
@@ -371,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806201542095_shopID.resx">
       <DependentUpon>201806201542095_shopID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806210634133_OverrideUnitAnnotations.resx">
+      <DependentUpon>201806210634133_OverrideUnitAnnotations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -7,13 +7,13 @@ namespace mallform.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ShopAndFloor : IMigrationMetadata
+    public sealed partial class OverrideUnitAnnotations : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ShopAndFloor));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(OverrideUnitAnnotations));
         
         string IMigrationMetadata.Id
         {
-            get { return "201806200635179_ShopAndFloor"; }
+            get { return "201806210634133_OverrideUnitAnnotations"; }
         }
         
         string IMigrationMetadata.Source

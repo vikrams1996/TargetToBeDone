@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Update</h2>
+<h2><strong>Edit Tenant</strong></h2>
 
 @using (Html.BeginForm("Update", "LeasingForm", FormMethod.Post))
 {
@@ -14,32 +14,32 @@
     <label>
         ShopName
     </label>
-
+    
     @Html.TextBoxFor(m=>m.shopName , new { @class = "form-control"})
-
+    <br>
     <label>
         BrandName
     </label>
     @Html.TextBoxFor(m=>m.brandName , new { @class ="form-control"})
-
+    <br>
     <label>
         Address
     </label>
 
     @Html.TextBoxFor(m => m.Address, new { @class = "form-control " })
-
+    <br>
     <label>
         Mobile No
     </label>
 
     @Html.TextBoxFor(m => m.mobileNo, new { @class = "form-control" })
-
+    <br>
     <label>
         Pan No
     </label>
 
     @Html.TextBoxFor(m => m.panNo, new { @class = "form-control " })
-
-
+    <br>
+    <br>
    <button type="submit" class="btn btn-primary">Save</button>
 }

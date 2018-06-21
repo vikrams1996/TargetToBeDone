@@ -32,8 +32,9 @@
                 <td>@tenant.Address</td>
                 <td>@tenant.mobileNo</td>
                 <td>@tenant.panNo</td>
-                <td>@Html.ActionLink("Update", "Update", "LeasingForm", new { id = tenant.Id }, null) </td>
-                <td>@Html.ActionLink("Delete", "Delete", "LeasingForm", new { id=tenant.Id }, null)</td>
+                <td>@Html.ActionLink("Edit Tenant", "Update", "LeasingForm", new { id = tenant.Id }, null) </td>
+                <td>@Html.ActionLink("Delete", "Delete", "LeasingForm", new { id=tenant.Id },
+    new { onclick = "return confirm('Are you sure you wish to delete this Tenant?');" })</td>
                 
                 
                     
