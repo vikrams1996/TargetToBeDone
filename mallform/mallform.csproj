@@ -171,6 +171,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LeasingFormController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RentController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -230,6 +231,7 @@
     <Compile Include="Models\Tenant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\RentFormViewModel.cs" />
     <Compile Include="ViewModel\TenantFormViewModel.cs" />
     <Compile Include="ViewModel\UnitFormViewModel.cs" />
   </ItemGroup>
@@ -293,6 +295,7 @@
     <Content Include="Views\Home\unitList.cshtml" />
     <Content Include="Views\Unit\AddUnit.cshtml" />
     <Content Include="Views\Unit\EditUnit.cshtml" />
+    <Content Include="Views\Rent\leaseUnit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

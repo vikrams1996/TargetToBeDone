@@ -20,7 +20,7 @@ namespace mallform.Models
         public byte floorId { get; set; }
         public shop Shop { get; set; }
 
-      
+        [Display(Name = "Shop Number")]
         public int shopId { get; set; }
 
 
