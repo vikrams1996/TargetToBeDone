@@ -15,5 +15,7 @@ namespace mallform.ViewModel
         [Required]
         public IEnumerable<shop> Shops { get; set; }
 
+        
+
     }
 }

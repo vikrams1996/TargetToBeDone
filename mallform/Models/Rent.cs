@@ -9,6 +9,7 @@ namespace mallform.Models
     public class Rent
     {
 
+
         public int Id { get; set; }
 
         [Display(Name = "Issue Date")]
@@ -19,10 +20,25 @@ namespace mallform.Models
         [DataType(DataType.Date)]
         public DateTime endDate { get; set; }
 
+
         public string Amount { get; set; }
-
-        public Tenant Tenant { get; set; }
-
+       
         public Unit Unit { get; set; }
+        
+
+        [Display(Name = "Unit Size")]
+        public int unitId { get; set; }
+       
+        public Tenant Tenant { get; set; }
+       
+        [Display(Name = "Tenant ")]
+        public int tenantId { get; set; }
+
+     
+       
+
+
+
+
     }
 }

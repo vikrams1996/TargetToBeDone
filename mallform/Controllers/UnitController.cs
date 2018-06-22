@@ -20,11 +20,12 @@ namespace mallform.Controllers
         }
         public ActionResult AddUnit() //GET UNITS 
         {
+           
             var floors = _Context.Floor.ToList();
             var shops = _Context.Shop.ToList();
             var viewModel = new UnitFormViewModel
             {
-
+                
                 Floors = floors,
                 Shops = shops
             };

@@ -2,7 +2,7 @@
     padding-top: 50px;
     padding-bottom: 20px;
     color:midnightblue;
-    background-color:whitesmoke;
+    background-color:white;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -63,3 +63,5 @@ textarea {
 
     border:2px solid red;
 }
+
+/*PAGE LEVEL STYLES*/

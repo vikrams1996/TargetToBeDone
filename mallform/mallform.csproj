@@ -220,6 +220,54 @@
     <Compile Include="Migrations\201806210634133_OverrideUnitAnnotations.Designer.cs">
       <DependentUpon>201806210634133_OverrideUnitAnnotations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806211030193_FreshCleanStart.cs" />
+    <Compile Include="Migrations\201806211030193_FreshCleanStart.Designer.cs">
+      <DependentUpon>201806211030193_FreshCleanStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806211041000_UnitIdinRent.cs" />
+    <Compile Include="Migrations\201806211041000_UnitIdinRent.Designer.cs">
+      <DependentUpon>201806211041000_UnitIdinRent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806211042369_TenantIdinRent.cs" />
+    <Compile Include="Migrations\201806211042369_TenantIdinRent.Designer.cs">
+      <DependentUpon>201806211042369_TenantIdinRent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806211210113_leaseStatusTableAdded.cs" />
+    <Compile Include="Migrations\201806211210113_leaseStatusTableAdded.Designer.cs">
+      <DependentUpon>201806211210113_leaseStatusTableAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806211216148_LeaseIdinRent.cs" />
+    <Compile Include="Migrations\201806211216148_LeaseIdinRent.Designer.cs">
+      <DependentUpon>201806211216148_LeaseIdinRent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806211217511_DROPPED.cs" />
+    <Compile Include="Migrations\201806211217511_DROPPED.Designer.cs">
+      <DependentUpon>201806211217511_DROPPED.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806211222433_CHANGES.cs" />
+    <Compile Include="Migrations\201806211222433_CHANGES.Designer.cs">
+      <DependentUpon>201806211222433_CHANGES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806211226327_StateGoneToIntType.cs" />
+    <Compile Include="Migrations\201806211226327_StateGoneToIntType.Designer.cs">
+      <DependentUpon>201806211226327_StateGoneToIntType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806211227424_MAANJARENT.cs" />
+    <Compile Include="Migrations\201806211227424_MAANJARENT.Designer.cs">
+      <DependentUpon>201806211227424_MAANJARENT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806220532049_OverrideConventionInReNTaNDstATE.cs" />
+    <Compile Include="Migrations\201806220532049_OverrideConventionInReNTaNDstATE.Designer.cs">
+      <DependentUpon>201806220532049_OverrideConventionInReNTaNDstATE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806220921364_DropColoumnStatusFromRent.cs" />
+    <Compile Include="Migrations\201806220921364_DropColoumnStatusFromRent.Designer.cs">
+      <DependentUpon>201806220921364_DropColoumnStatusFromRent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806220922443_DropStatusTable.cs" />
+    <Compile Include="Migrations\201806220922443_DropStatusTable.Designer.cs">
+      <DependentUpon>201806220922443_DropStatusTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Floor.cs" />
@@ -296,6 +344,8 @@
     <Content Include="Views\Unit\AddUnit.cshtml" />
     <Content Include="Views\Unit\EditUnit.cshtml" />
     <Content Include="Views\Rent\leaseUnit.cshtml" />
+    <Content Include="Views\Home\leaseStatus.cshtml" />
+    <Content Include="Views\Rent\editLease.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -339,6 +389,42 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806210634133_OverrideUnitAnnotations.resx">
       <DependentUpon>201806210634133_OverrideUnitAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806211030193_FreshCleanStart.resx">
+      <DependentUpon>201806211030193_FreshCleanStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806211041000_UnitIdinRent.resx">
+      <DependentUpon>201806211041000_UnitIdinRent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806211042369_TenantIdinRent.resx">
+      <DependentUpon>201806211042369_TenantIdinRent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806211210113_leaseStatusTableAdded.resx">
+      <DependentUpon>201806211210113_leaseStatusTableAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806211216148_LeaseIdinRent.resx">
+      <DependentUpon>201806211216148_LeaseIdinRent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806211217511_DROPPED.resx">
+      <DependentUpon>201806211217511_DROPPED.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806211222433_CHANGES.resx">
+      <DependentUpon>201806211222433_CHANGES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806211226327_StateGoneToIntType.resx">
+      <DependentUpon>201806211226327_StateGoneToIntType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806211227424_MAANJARENT.resx">
+      <DependentUpon>201806211227424_MAANJARENT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806220532049_OverrideConventionInReNTaNDstATE.resx">
+      <DependentUpon>201806220532049_OverrideConventionInReNTaNDstATE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806220921364_DropColoumnStatusFromRent.resx">
+      <DependentUpon>201806220921364_DropColoumnStatusFromRent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806220922443_DropStatusTable.resx">
+      <DependentUpon>201806220922443_DropStatusTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

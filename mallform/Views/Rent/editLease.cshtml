@@ -1,0 +1,43 @@
+﻿@model mallform.ViewModel.RentFormViewModel
+@{
+    ViewBag.Title = "editLease";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2><strong>Edit Lease</strong></h2>
+
+<br>
+@using (Html.BeginForm("Save", "Rent"))
+
+{
+
+    @Html.LabelFor(m => m.Rent.tenantId)
+    @Html.DropDownListFor(m => m.Rent.tenantId, new SelectList(Model.Tenants, "Id", "shopName"), "Select Tenant",
+        new { @class = "form-control" })
+    <br>
+    @Html.LabelFor(m => m.Rent.unitId)
+    @Html.DropDownListFor(m => m.Rent.unitId, new SelectList(Model.Units, "Id", "Size"), "Select Size",
+        new { @class = "form-control" })
+    <br>
+    @Html.LabelFor(model => model.Rent.startDate)
+
+
+    @Html.TextBoxFor(model => model.Rent.startDate, new { @class = "form-control" })
+    <br>
+    @Html.LabelFor(model => model.Rent.endDate)
+
+
+    @Html.TextBoxFor(model => model.Rent.endDate, new { @class = "form-control" })
+    <br>
+    @Html.LabelFor(m => m.Rent.Amount)
+    @Html.TextBoxFor(m => m.Rent.Amount, new { @class = "form-control", placeholder = "In Rupees" })
+    <br>
+   
+    @Html.HiddenFor(m => m.Rent.Id)
+
+
+    <br>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+
+}

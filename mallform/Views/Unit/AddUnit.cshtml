@@ -1,37 +1,33 @@
 ﻿@model mallform.ViewModel.UnitFormViewModel
 @{
     ViewBag.Title = "AddUnit";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2><strong>Add Unit</strong></h2>
+
 
 @using (Html.BeginForm("Save", "Unit"))
 
 {
 
     @Html.LabelFor(m => m.Unit.Size)
-    @Html.TextBoxFor(m => m.Unit.Size, new { @class = "form-control " , placeholder = "In Square Feet" })
-
+    @Html.TextBoxFor(m => m.Unit.Size, new { @class = "form-control " })
     @Html.ValidationMessageFor(m => m.Unit.Size)
     <br>
-    <br>
     @Html.LabelFor(m => m.Unit.floorId)
-    @Html.DropDownListFor(m => m.Unit.floorId, new SelectList(Model.Floors, "Id", "Name"), "Select Mall Floor",
+    @Html.DropDownListFor(m => m.Unit.floorId, new SelectList(Model.Floors, "Id", "Name"), "",
         new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.Unit.floorId)
     <br>
-    <br>
     @Html.LabelFor(m => m.Unit.shopId)
-    @Html.DropDownListFor(m => m.Unit.shopId, new SelectList(Model.Shops, "Id", "Name"), "Select Shop Number",
+    @Html.DropDownListFor(m => m.Unit.shopId, new SelectList(Model.Shops, "Id", "Name"), "",
         new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.Unit.shopId)
     <br>
-    @Html.HiddenFor(m=>m.Unit.Id)
+    @Html.HiddenFor(m => m.Unit.Id)
 
-
-    
     <br>
-    <button type="submit" class="btn btn-primary">Add Unit</button>
+
+    <button type="submit" class="btn btn-primary">Add</button>
 
 }
