@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using mallform.Models;
 using mallform.ViewModel;
-
+using System.IO;
 
 namespace mallform.Controllers
 {
@@ -21,22 +21,22 @@ namespace mallform.Controllers
         //GET VALUES FROM THE DATABASE
         public ActionResult leaseUnit()
         {
-        
+
             var tenants = _Context.Tenant.ToList();
             var units = _Context.Unit.ToList();
-         
-           
+
+
             var viewModel = new RentFormViewModel
             {
                 Tenants = tenants,
-                Units=units,
-               
-               
-               
+                Units = units,
+
+
             };
 
             return View("leaseUnit", viewModel);
         }
+
 
         [HttpPost]
         public ActionResult Save(Rent Rent)
@@ -54,13 +54,18 @@ namespace mallform.Controllers
                 rentInDb.startDate = Rent.startDate;
                 rentInDb.endDate = Rent.endDate;
                 rentInDb.Amount = Rent.Amount;
-               
+                rentInDb.leaseStatus = Rent.leaseStatus;
+
             }
 
-            _Context.SaveChanges();
 
+            _Context.SaveChanges();
             return RedirectToAction("leaseStatus", "Home");
         }
+       
+
+        
+    
 
         public ActionResult Edit(int id)
 
@@ -70,23 +75,21 @@ namespace mallform.Controllers
                 return HttpNotFound();
             var viewModel = new RentFormViewModel
             {
-                Tenants =_Context.Tenant.ToList(),
-            Units =_Context.Unit.ToList(),
-               Rent=Rent
+                Tenants = _Context.Tenant.ToList(),
+                Units = _Context.Unit.ToList(),
+                Rent = Rent
             };
             return View("editLease", viewModel);
         }
 
         public ActionResult Delete(int id)
-
         {
-
             _Context.Rent.Remove(_Context.Rent.Find(id));
 
             _Context.SaveChanges();
 
             return RedirectToAction("leaseStatus", "Home");
-
         }
-    }
+
+    }      
 }

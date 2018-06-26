@@ -34,11 +34,14 @@ namespace mallform.Models
         [Display(Name = "Tenant ")]
         public int tenantId { get; set; }
 
-     
+        [Required]
+        [Display(Name = "Lease Status ")]
+        public string leaseStatus { get; set; }
+
        
+      
 
-
-
+       
 
     }
 }

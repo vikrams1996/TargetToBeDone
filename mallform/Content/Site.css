@@ -65,3 +65,53 @@ textarea {
 }
 
 /*PAGE LEVEL STYLES*/
+.money {
+   
+    font-weight:bold;
+   color:forestgreen;
+}
+
+.Month {
+    background-color:red;
+    width:60px;
+    border-radius:4px;
+    text-align:center;
+    padding-right:5px;
+    font-weight:bold;
+    color:white;
+}
+
+.day {
+     background-color:#f7f7f7;
+    width:60px;
+    text-align:center;
+    padding-right:5px;
+    font-weight:bold;
+    color:black;
+    padding-top:5px;
+    padding-bottom:10px;
+    border-radius:3px;
+}
+
+
+.MM {
+    background-color:red;
+    width:60px;
+    border-radius:4px;
+    text-align:center;
+    padding-right:5px;
+    font-weight:bold;
+    color:white;
+}
+
+.dd {
+     background-color:#f7f7f7;
+    width:60px;
+    text-align:center;
+    padding-right:5px;
+    font-weight:bold;
+    color:black;
+    padding-top:5px;
+    padding-bottom:10px;
+    border-radius:3px;
+}

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using mallform.Models;
 using mallform.ViewModel;
-
+using System.IO;
 
 namespace mallform.Controllers
 {
@@ -38,10 +38,8 @@ namespace mallform.Controllers
 
             return View(leaseStatus);
         }
+
        
-        
-
-
 
         public ActionResult About()
         {

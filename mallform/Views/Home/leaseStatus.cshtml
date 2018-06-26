@@ -7,17 +7,19 @@
 <h2><strong>Lease Status</strong></h2>
 <br>
 
+
 @Html.ActionLink("Add Lease Status", "leaseUnit", "Rent", null, new { @class = "btn btn-primary btn-large" })
 <br>
 <br>
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">Start Date</th>
-            <th scope="col">End Date</th>
-            <th scope="col">Amount</th>
             <th scope="col">Tenant</th>
             <th scope="col">Size Chosen</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Amount</th>  
+            <th scope="col">Status</th>    
             
 
         </tr>
@@ -29,43 +31,57 @@
             <tbody>
                 <tr>
 
-    <td>
-        <div class="Date">
-
-            <div class="Month">
-                @Rent.startDate.ToString("MMM")
-            </div>
-            <div class="day">
-                @Rent.startDate.ToString("d ")
-            </div>
-
-        </div>
-    </td>
-    <td>
-        <div class="endDate">
-            <div class="MM">
-                @Rent.endDate.ToString("MMM")
-            </div>
-            <div class="dd">
-                @Rent.endDate.ToString("d ")
-            </div>
-        </div>
-    </td>
-                    <td>
-                       @Rent.Amount
-                    </td>
                     <td>
                         @Rent.Tenant.shopName
                     </td>
                     <td>
                         @Rent.Unit.Size
                     </td>
-                  
+ 
+                    <td>
+                        <div class="Date">
+
+                            <div class="Month">
+                                @Rent.startDate.ToString("MMM")
+                            </div>
+                            <div class="day">
+                                @Rent.startDate.ToString("d ")
+                            </div>
+
+                        </div>
+                    </td>
+                    <td>
+                        <div class="endDate">
+                            <div class="MM">
+                                @Rent.endDate.ToString("MMM")
+                            </div>
+                            <div class="dd">
+                                @Rent.endDate.ToString("d ")
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class= "money">
+
+                            @Rent.Amount
+                        </div>
+                    </td> 
+
+                    <td>
+                        <div class="leaseStatus">
+
+                            @Rent.leaseStatus
+                        </div>
+                    </td>
+
                     
+                    
+                   
+                   
                     <td>@Html.ActionLink("Edit", "Edit", "Rent", new { id = Rent.Id }, null)</td>
                     <td>
                         @Html.ActionLink("Delete", "Delete", "Rent", new { id = Rent.Id },
-    new { onclick = "return confirm('Are you sure you wish to delete this Detail?');" })
+new { onclick = "return confirm('Are you sure you wish to delete this Detail?');" })
                 </td>
             </tr>
             </tbody>

@@ -32,7 +32,20 @@
     @Html.LabelFor(m => m.Rent.Amount)
     @Html.TextBoxFor(m => m.Rent.Amount, new { @class = "form-control", placeholder = "In Rupees" })
     <br>
-   
+    @Html.LabelFor(m=>m.Rent.leaseStatus)
+    @Html.DropDownListFor(model => model.Rent.leaseStatus, new SelectList(
+                  new List<Object>{
+                       new { value = 0 , text = "New"  },
+                       new { value = 1 , text = "Active" },
+                       new {value = 2 , text = "Expire"}
+
+                    },
+                  "text",
+                  "text",
+                   0), new { @class = "form-control" })
+
+  <br>
+
     @Html.HiddenFor(m => m.Rent.Id)
 
 

@@ -6,37 +6,56 @@
 
 <h2><strong>Lease A Unit</strong></h2>
 <br>
-@using (Html.BeginForm("Save", "Rent"))
+@using (Html.BeginForm("Save", "Rent", new { enctype = "multipart/form-data" }))
 
 {
 
     @Html.LabelFor(m => m.Rent.tenantId)
     @Html.DropDownListFor(m => m.Rent.tenantId, new SelectList(Model.Tenants, "Id", "shopName"), "Select Tenant",
-        new { @class = "form-control" })
+            new { @class = "form-control" })
     <br>
     @Html.LabelFor(m => m.Rent.unitId)
     @Html.DropDownListFor(m => m.Rent.unitId, new SelectList(Model.Units, "Id", "Size"), "Select Size",
-        new { @class = "form-control" })
+            new { @class = "form-control" })
     <br>
-     @Html.LabelFor(model => model.Rent.startDate )
+     @Html.LabelFor(model => model.Rent.startDate)
 
 
-     @Html.TextBoxFor(model => model.Rent.startDate, new { @class = "form-control" } )
+     @Html.TextBoxFor(model => model.Rent.startDate, new { @class = "form-control" })
      <br>
     @Html.LabelFor(model => model.Rent.endDate)
 
 
-    @Html.TextBoxFor(model => model.Rent.endDate, new { @class = "form-control" } )
+    @Html.TextBoxFor(model => model.Rent.endDate, new { @class = "form-control" })
             <br>
             @Html.LabelFor(m => m.Rent.Amount)
-            @Html.TextBoxFor(m => m.Rent.Amount, new { @class = "form-control" ,placeholder = "In Rupees" })
-            <br>
-           
-            @Html.HiddenFor(m => m.Rent.Id)
-
-
+            @Html.TextBoxFor(m => m.Rent.Amount, new { @class = "form-control", placeholder = "In Rupees" })
             <br>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+    @Html.LabelFor(m => m.Rent.leaseStatus)
+    @Html.DropDownListFor(model => model.Rent.leaseStatus, new SelectList(
+                      new List<Object>{
+                       new { value = 0 , text = "New"  },
+                       new { value = 1 , text = "Active" }
 
-            }
+                        },
+                      "text",
+                      "text",
+                       0), new { @class = "form-control" })
+
+    
+       
+      
+
+        <br><br>
+
+
+        @Html.HiddenFor(m => m.Rent.Id)
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+
+        }
+
+

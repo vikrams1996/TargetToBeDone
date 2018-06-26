@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -52,12 +56,24 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -167,12 +183,16 @@
     <Compile Include="App_Data\App_Start\IdentityConfig.cs" />
     <Compile Include="App_Data\App_Start\RouteConfig.cs" />
     <Compile Include="App_Data\App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\MappingProfile.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\RentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LeasingFormController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RentController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
+    <Compile Include="Dtos\RentDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -268,8 +288,97 @@
     <Compile Include="Migrations\201806220922443_DropStatusTable.Designer.cs">
       <DependentUpon>201806220922443_DropStatusTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806240528366_RentHaveLeaseStatusNow.cs" />
+    <Compile Include="Migrations\201806240528366_RentHaveLeaseStatusNow.Designer.cs">
+      <DependentUpon>201806240528366_RentHaveLeaseStatusNow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806250814251_postedFileInRent.cs" />
+    <Compile Include="Migrations\201806250814251_postedFileInRent.Designer.cs">
+      <DependentUpon>201806250814251_postedFileInRent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806250820545_DeleteRentColoumnPostedFile.cs" />
+    <Compile Include="Migrations\201806250820545_DeleteRentColoumnPostedFile.Designer.cs">
+      <DependentUpon>201806250820545_DeleteRentColoumnPostedFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806250903289_FileInRent.cs" />
+    <Compile Include="Migrations\201806250903289_FileInRent.Designer.cs">
+      <DependentUpon>201806250903289_FileInRent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806250908398_DropAgAIN.cs" />
+    <Compile Include="Migrations\201806250908398_DropAgAIN.Designer.cs">
+      <DependentUpon>201806250908398_DropAgAIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806250935597_FiledaloInRent.cs" />
+    <Compile Include="Migrations\201806250935597_FiledaloInRent.Designer.cs">
+      <DependentUpon>201806250935597_FiledaloInRent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806260616092_FileUploadToTable.cs" />
+    <Compile Include="Migrations\201806260616092_FileUploadToTable.Designer.cs">
+      <DependentUpon>201806260616092_FileUploadToTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806260622393_FileUploadToDataBase.cs" />
+    <Compile Include="Migrations\201806260622393_FileUploadToDataBase.Designer.cs">
+      <DependentUpon>201806260622393_FileUploadToDataBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806260702560_RentInFile.cs" />
+    <Compile Include="Migrations\201806260702560_RentInFile.Designer.cs">
+      <DependentUpon>201806260702560_RentInFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806260720293_KeyInFileUpload.cs" />
+    <Compile Include="Migrations\201806260720293_KeyInFileUpload.Designer.cs">
+      <DependentUpon>201806260720293_KeyInFileUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806260750203_CLEANED.cs" />
+    <Compile Include="Migrations\201806260750203_CLEANED.Designer.cs">
+      <DependentUpon>201806260750203_CLEANED.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806260758171_RentInFile1.cs" />
+    <Compile Include="Migrations\201806260758171_RentInFile1.Designer.cs">
+      <DependentUpon>201806260758171_RentInFile1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806260836470_DropOne.cs" />
+    <Compile Include="Migrations\201806260836470_DropOne.Designer.cs">
+      <DependentUpon>201806260836470_DropOne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806260837258_RemoveRent.cs" />
+    <Compile Include="Migrations\201806260837258_RemoveRent.Designer.cs">
+      <DependentUpon>201806260837258_RemoveRent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806260904469_Files.cs" />
+    <Compile Include="Migrations\201806260904469_Files.Designer.cs">
+      <DependentUpon>201806260904469_Files.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806260906388_droped.cs" />
+    <Compile Include="Migrations\201806260906388_droped.Designer.cs">
+      <DependentUpon>201806260906388_droped.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806260907350_FileInRent1.cs" />
+    <Compile Include="Migrations\201806260907350_FileInRent1.Designer.cs">
+      <DependentUpon>201806260907350_FileInRent1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806260908282_fileId.cs" />
+    <Compile Include="Migrations\201806260908282_fileId.Designer.cs">
+      <DependentUpon>201806260908282_fileId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806260939304_cleaned1.cs" />
+    <Compile Include="Migrations\201806260939304_cleaned1.Designer.cs">
+      <DependentUpon>201806260939304_cleaned1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806260940092_cleaned2.cs" />
+    <Compile Include="Migrations\201806260940092_cleaned2.Designer.cs">
+      <DependentUpon>201806260940092_cleaned2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806260941184_RentInFileAgain.cs" />
+    <Compile Include="Migrations\201806260941184_RentInFileAgain.Designer.cs">
+      <DependentUpon>201806260941184_RentInFileAgain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806260943232_rentid.cs" />
+    <Compile Include="Migrations\201806260943232_rentid.Designer.cs">
+      <DependentUpon>201806260943232_rentid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\FileUpload.cs" />
     <Compile Include="Models\Floor.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -347,7 +456,9 @@
     <Content Include="Views\Home\leaseStatus.cshtml" />
     <Content Include="Views\Rent\editLease.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="uploads\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -425,6 +536,72 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806220922443_DropStatusTable.resx">
       <DependentUpon>201806220922443_DropStatusTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806240528366_RentHaveLeaseStatusNow.resx">
+      <DependentUpon>201806240528366_RentHaveLeaseStatusNow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806250814251_postedFileInRent.resx">
+      <DependentUpon>201806250814251_postedFileInRent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806250820545_DeleteRentColoumnPostedFile.resx">
+      <DependentUpon>201806250820545_DeleteRentColoumnPostedFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806250903289_FileInRent.resx">
+      <DependentUpon>201806250903289_FileInRent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806250908398_DropAgAIN.resx">
+      <DependentUpon>201806250908398_DropAgAIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806250935597_FiledaloInRent.resx">
+      <DependentUpon>201806250935597_FiledaloInRent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806260616092_FileUploadToTable.resx">
+      <DependentUpon>201806260616092_FileUploadToTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806260622393_FileUploadToDataBase.resx">
+      <DependentUpon>201806260622393_FileUploadToDataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806260702560_RentInFile.resx">
+      <DependentUpon>201806260702560_RentInFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806260720293_KeyInFileUpload.resx">
+      <DependentUpon>201806260720293_KeyInFileUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806260750203_CLEANED.resx">
+      <DependentUpon>201806260750203_CLEANED.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806260758171_RentInFile1.resx">
+      <DependentUpon>201806260758171_RentInFile1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806260836470_DropOne.resx">
+      <DependentUpon>201806260836470_DropOne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806260837258_RemoveRent.resx">
+      <DependentUpon>201806260837258_RemoveRent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806260904469_Files.resx">
+      <DependentUpon>201806260904469_Files.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806260906388_droped.resx">
+      <DependentUpon>201806260906388_droped.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806260907350_FileInRent1.resx">
+      <DependentUpon>201806260907350_FileInRent1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806260908282_fileId.resx">
+      <DependentUpon>201806260908282_fileId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806260939304_cleaned1.resx">
+      <DependentUpon>201806260939304_cleaned1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806260940092_cleaned2.resx">
+      <DependentUpon>201806260940092_cleaned2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806260941184_RentInFileAgain.resx">
+      <DependentUpon>201806260941184_RentInFileAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806260943232_rentid.resx">
+      <DependentUpon>201806260943232_rentid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
