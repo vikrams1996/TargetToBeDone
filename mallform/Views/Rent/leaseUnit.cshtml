@@ -6,7 +6,7 @@
 
 <h2><strong>Lease A Unit</strong></h2>
 <br>
-@using (Html.BeginForm("Save", "Rent", new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Save", "Rent", FormMethod.Post, new { enctype = "multipart/form-data" }))
 
 {
 
@@ -43,9 +43,10 @@
                       "text",
                        0), new { @class = "form-control" })
 
-    
-       
-      
+
+    <label for="file">Filename:</label>
+    <input type="file" name="file" id="file" />
+
 
         <br><br>
 

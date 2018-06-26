@@ -24,13 +24,13 @@ namespace mallform.Controllers
 
             var tenants = _Context.Tenant.ToList();
             var units = _Context.Unit.ToList();
-
+          
 
             var viewModel = new RentFormViewModel
             {
                 Tenants = tenants,
-                Units = units,
-
+                Units = units
+             
 
             };
 
@@ -39,7 +39,7 @@ namespace mallform.Controllers
 
 
         [HttpPost]
-        public ActionResult Save(Rent Rent)
+        public ActionResult Save(Rent Rent , FileUpload upload, HttpPostedFileBase file)
         {
 
             if (Rent.Id == 0)
@@ -55,16 +55,38 @@ namespace mallform.Controllers
                 rentInDb.endDate = Rent.endDate;
                 rentInDb.Amount = Rent.Amount;
                 rentInDb.leaseStatus = Rent.leaseStatus;
-
+                
             }
 
+                _Context.SaveChanges();
+           
+            var rent = _Context.Rent.Single(r => r.Id == Rent.Id);
 
-            _Context.SaveChanges();
+            var up = Request.Files["file"];
+            if (up.ContentLength > 0) {
+
+
+
+                var fileName = Path.GetFileName(file.FileName);
+                var guid = Guid.NewGuid().ToString();
+                var path = Path.Combine(Server.MapPath("~/uploads"), guid + fileName);
+                file.SaveAs(path);
+                string fl = path.Substring(path.LastIndexOf("\\"));
+                string[] split = fl.Split('\\');
+                string newpath = split[1];
+                string imagepath = "~/uploads/" + newpath;
+                upload.length = imagepath;
+                upload.Rent = rent;
+                _Context.FileUpload.Add(upload);
+                _Context.SaveChanges();
+
+            }
             return RedirectToAction("leaseStatus", "Home");
         }
-       
 
-        
+
+
+      
     
 
         public ActionResult Edit(int id)
@@ -78,6 +100,7 @@ namespace mallform.Controllers
                 Tenants = _Context.Tenant.ToList(),
                 Units = _Context.Unit.ToList(),
                 Rent = Rent
+
             };
             return View("editLease", viewModel);
         }
