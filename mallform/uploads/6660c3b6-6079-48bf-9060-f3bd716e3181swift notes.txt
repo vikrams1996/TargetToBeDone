@@ -1,0 +1,376 @@
+swift : 
+
+
+introduction : it is a devlopment language used for phones , desktop , servers 
+it is an easy way to start apple programming !! 
+it is like a scripting language !! 
+
+the software to code swift is xcode !!
+initially we will be working witg playground mode in which we can test our code immediately and check the errors before making an app !! 
+
+
+
+VARIABLES AND CONSTANT !! 
+in swift we declare variable as 
+
+var project = " hello " 
+syntax 
+
+var var_name = (any type of data) 
+
+we can give int , double , float or string type )
+
+we can even mention the data type at the type of the declaration !! 
+for example !!
+var project : String = "hello world " 
+
+TO DECLARE CONSTANT  we use the keyword  let
+
+let project : String = "hello world" 
+Note: instead of typing this project constant variable again and again we can access it by declaring it simply like : 
+
+project ;  // it will still show the value as hello world 
+
+TO CONVERT VALUES : 
+the values are not converted implicitly !! 
+it is done explicitly with the help of instance !! 
+
+for example : 
+
+let label = "the width is "
+let width = 80
+let widthlabel = label + String(width)
+
+NOW INSTEAD OF THESE INSTANCES we can directly add value with the help of \() in the string !!
+
+for example :
+
+let apple = 3
+let orange = 4 
+let applesummary = " we have only \(apple) "
+let orrangesummary = " we have only \(orange)"
+
+NOW WE CAN ALSO ADD THESE BOTH SUMMARIES IN A SINGLE VALUE USING  " MULTIPLE QUOTATION " 
+
+for example 
+
+let apple = 3
+let orange= 4 
+let wholesummary= """
+we have only \(apple) apples and only \(orange) oranges 
+"""
+
+NOTE :  this """ is always written in different line of codes ! 
+
+
+
+ARRAYS : collection of variables of same data type and it can be accessed with the index or key ! 
+
+
+how to create an array ?
+
+var shoppingList =  [ "orange" , "apple" , "guvava" ] // THIS IS THE WAY TO CREATE AN ARRAY !! 
+shoppingList[1] = " bottle of apple " // THIS IS HOW YOU ACCESS AN ARRAY !! 
+
+NOTE : YOU CAN EVEN ADD COMMA AFTER LAST DECLARATION STILL THERE IS NO ERROR !! 
+
+for eample : 
+
+var shoppingList = ["orange":"sweet" , "apple":"healthy" ,] //even after using comma still there is no error !! 
+shoppingList["vikram"]="i will eat it all " 
+
+
+
+CONTROL FLOW !! 
+
+you can use if and switch to make conditions 
+and for - in , while , repeat-while to make loops !! 
+
+for example using IF condition !
+
+let individualScore = [20,40,50,78,129]
+
+var teamScore = 0 
+for score in individualScore {
+if score>50 {
+
+teamScore += 3
+}
+else{
+ teamScore += 1
+}
+}
+print(teamScore)
+
+
+EXAMPLE TO USE SWITCH :
+
+let vegitable = "red pepper" 
+
+switch vegitable {
+
+case "cucumber" : 
+print ( "this makes the soup tasty" )
+
+case " carrot" :
+
+print ( this makes the soup nutritious" )
+
+case let x where x.hasSuffix(pepper) :{
+
+print ( " this is tasty" )
+
+}
+
+default : print ( " the soup tastes really good ")
+
+NOTE : THE SWITCH NEEDS NO BREAK STATEMENTS . IT ENDS WHERE EVER THE MATCH IS FOUND , and default is needed !! 
+
+in this case the output will be :
+
+this is tasty 
+
+and here the switch ends automatically after it no need of break statements !! 
+
+TO ITTERATE OVER ITEMS in a dictionary we can use for-in command !! 
+
+for example :
+
+let interestingNumbers= [
+"prime" : [1,3,5,7,9]
+"even" : [2,4,6,8]
+]
+
+var largest = 0 
+for ( kind, numbers) in interestingNumbers {
+for number in numbers {
+
+if number > largest {
+
+largest= number 
+}
+
+}
+print(largest) 
+
+THE OUTPUT WILL BE : 9 // whiich is the largest number between prime and even so this is how for-in is used to itterate the dictionary !! 
+
+
+WHILE is used to repeat a block of code in while condition we can add the condition of a loop at the instead to make sure code at least gets printed for once !! 
+
+for example : 
+
+var n = 2 
+While n < 100 {
+
+ n *=2
+
+}
+print(n)
+
+
+// we can repeat the block of code 
+
+var m = 2 
+repeat{
+m *=2
+}
+While m < 100 //condition is placed at the end to make sure the code gets printed at least once !! 
+
+print(m)
+
+
+
+FUNCTIONS 
+
+To declare a function we use the keyword func and write the code in paranthesis ! 
+
+Syntax :
+
+func func_name ( person : string , day : string)
+
+in order to add return type and names of the function keys we use ' -> ' )
+
+for example !
+
+
+func lab ( person : string , day : string ) 
+-> string {
+return " hello this is \(person) and it is \(day) 
+
+}
+
+lab ( person : "vikram" , day : " Tuesday " )
+
+NOTE : By default function uses it's parameters name as labels !! we can give our default names using another name with paramter name or we can use
+ _ in order to avoid default label !! 
+
+for example : 
+
+func lab (_ person: string , on day : string ) // here we used the default names using _ and on  . 
+-> string {
+return "hello \(person) it is \(day) 
+}
+
+lab( "vikram" , on : "Tuesday" ) // here with _ we dont't have to use any name and ON is used because it was given by us and has to be used again !! 
+
+
+
+
+SWIFT OPTIONALS!!
+
+in swift optional we use ? to declare the type as an optional which means that the object do not contain any value or it has a specific  value assigned to it !! 
+
+
+for example : 
+
+var laptop: string? // this is optional 
+
+it can be either 
+
+var laptop: string? = nil // it can either be a missing value 
+
+or , 
+
+var laptop : string? = " hey im john" // it has an assigned value to it 
+
+
+PROGRAM TO PRINT OPTIONAL TYPE IF IT IS NOT NIL
+
+example !! 
+
+var laptop: string? 
+
+laptop = "hey this is not a nil value" 
+
+if laptop!=nil {
+
+print(laptop ! ) // it is FORCED UNWRAPPING
+
+}
+else
+{
+
+print ("this is having A nil value")
+
+}
+
+AUTOMATIC UNWRAPPING 
+
+var laptop : String! //FORCED UNWRAPPING
+
+laptop="hey vikram"
+
+if laptop!=nil {
+print (laptop)
+}
+else {
+
+print (this is having a nil value)
+
+}
+
+OPTIONAL BINDING !! 
+ this is used to check weather the optional contains the value!!
+and if the optional contains the value then use it as a temporary constant or variable !! 
+
+
+
+for example !
+
+var keyBoard : String ?
+keyBoard= " press keys immediately"
+                                                 
+if let testBoard = keyBoard {    // HERE OPTIONAL BINDING IS DONE TO CHECK IF OPTIONAL HAS A VALUE AND IF IT HAS THEN USE IT AS A CONSTANT OR A VARIABLE !! 
+print ( " the string has \(testBoard) in it ")
+
+}
+else 
+{
+print ( " the string has Nil values")
+
+}
+
+
+
+TUPLES!!
+
+the tuple is use to print multiple values need not to be of same data types. it can be of same data types or different !!
+
+syntax : 
+
+HOW TO DECLARE TUPLE
+
+var tuple_name= (value1,value2,.......)
+
+HOW TO ACCESS TUPLE
+
+print(tuple_name.0) // it will print the value1 which is at 0 position
+print(tuple_name.1)// it will print the value2 which is at 1st poistion
+
+NOTE : WE CAN ALSO GIVE NAME TO THESE VALUES AND ACCESS IT WITH THEM INSTEAD  OF THERE INDEXES !!
+
+for example : 
+
+var tuple_name = ( name: value1,name1: value2 , .....)
+
+print (tuple_name.name)
+print(tuple_name.name1)
+
+
+LIVE EXAMPLE!!
+
+var zoo= (age: 45 , description: "the animal is an elephant") // different value types  stored using tuple 
+
+print(zoo.age) //prints 45
+print(zoo.description)// prints the animal is an elephant 
+
+SO THIS IS HOW MULTIPLE VALUES CAN BE STORED EVEN OF DIFFERENT DATA TYPES 
+
+
+CONTROL STATEMENTS ( AGAIN ) 
+
+for-in 
+
+it is used to print a  group of statements 
+for example 
+
+let intData : [int] = [2,3,5]
+
+for value in intData {
+print ("the integer found in this data is \(value) ")
+
+}
+
+OUTPUT : 
+the integer found in this data is 2 
+the ineger found in this data is 3
+the integer found in this data is 5
+
+While loop
+
+it repeats a block of code until the condition is true
+it is used to test a condition 
+
+
+while repeat loop : which is similar to while loop but statement gets printed at least once always !!
+
+
+
+
+#PRACTICE 
+basic example to print the sum of arrays 
+
+var sum= 0 
+var sumArray : [Int] = [2,3,4,5]
+print (" the sum of the arrays are ")
+for value in sumArray {
+
+sum = sum + value 
+
+}
+
+print (sum)
+
+
+

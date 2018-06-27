@@ -93,15 +93,20 @@ namespace mallform.Controllers
 
         {
             var Rent = _Context.Rent.SingleOrDefault(r => r.Id == id);
+            var file = _Context.FileUpload.SingleOrDefault(f => f.ID == id);
             if (Rent == null)
                 return HttpNotFound();
+
             var viewModel = new RentFormViewModel
             {
                 Tenants = _Context.Tenant.ToList(),
                 Units = _Context.Unit.ToList(),
-                Rent = Rent
+                Rent = Rent,
+                Files = file
 
             };
+
+
             return View("editLease", viewModel);
         }
 

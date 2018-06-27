@@ -7,7 +7,7 @@
 <h2><strong>Edit Lease</strong></h2>
 
 <br>
-@using (Html.BeginForm("Save", "Rent"))
+@using (Html.BeginForm("Save", "Rent", FormMethod.Post, new { enctype = "multipart/form-data" }))
 
 {
 
@@ -46,6 +46,9 @@
 
   <br>
 
+    <label for="file">Upload Again ?</label>
+    <input type="file" name="file" id="file" />
+    <br>
     @Html.HiddenFor(m => m.Rent.Id)
 
 

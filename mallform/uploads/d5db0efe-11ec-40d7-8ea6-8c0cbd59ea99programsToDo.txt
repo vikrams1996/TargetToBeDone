@@ -1,0 +1,66 @@
+multilevel
+heirarchical
+mulitple
+file handling 
+threading 
+Arrays !! 
+
+MULTILEVEL!!
+
+class A : vehicle{
+
+publico void noise ()
+{
+
+}
+
+class mode() <- characteristics of vehicle so it is multilevel!!!!!!
+
+public void mode()
+{
+
+}
+
+class feature()
+
+public void feature()
+{
+
+}
+
+
+
+static main .............>
+
+A obj = new A();
+obj.mode();
+obj.feature();
+obj.noise();
+console.readkey();
+}
+--------------------------------------------------------
+
+multiple
+
+hierarchical inheritance!! 
+
+
+class principal {
+
+}
+
+class teacher: principal 
+{
+
+
+}
+
+class student : principal 
+{
+
+}
+ 
+-----------------------------------------------------------
+
+multiple !! 
+DONE BY INTERFACE because multiple inheritance is not possible in the c sharp !! 
