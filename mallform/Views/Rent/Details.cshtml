@@ -1,0 +1,42 @@
+﻿@model mallform.Models.Rent
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="detailsTitle">
+    <h2><strong>Details</strong></h2>
+
+</div>
+
+<br >
+<br >
+
+<div class="Details">
+
+    <div class="start">
+        Start Date :     @Model.startDate.ToString("MM / d ")
+    </div>
+    <div class="Status">
+
+        Lease Status : @Model.leaseStatus
+    </div>
+
+    <div class="End">
+
+        End Date : @Model.endDate.ToString("MM / d ")
+
+    </div>
+
+    <div class="Size">
+
+        Unit Size : @Model.Unit.Size
+
+    </div>
+
+    <div class="Amount">
+
+        Amount : @Model.Amount
+
+</div>
+
+</div>

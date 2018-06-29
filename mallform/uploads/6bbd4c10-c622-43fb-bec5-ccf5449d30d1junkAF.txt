@@ -1,0 +1,49 @@
+ [HttpPost]
+
+        public ActionResult unitUpdate(Unit unit)
+
+        {
+
+
+
+            if (unit.Id == 0)
+                _Context.Unit.Add(unit);
+            else
+            {
+                var units = _Context.Unit.Single(u => u.Id == unit.Id);
+                unit.Size = unit.Size;
+                unit.Floor = unit.Floor;
+                unit.Shop = unit.Shop;
+
+            }
+
+            _Context.SaveChanges();
+
+            return RedirectToAction("unitList", "Home");
+
+            
+
+}
+
+
+
+
+
+
+
+        {
+            Unit unit = _Context.Unit.Where(m => m.Id == model.Id).SingleOrDefault();
+
+            if (unit!= null)
+
+            {
+
+                _Context.Entry(unit).CurrentValues.SetValues(model);
+
+                _Context.SaveChanges();
+
+                return RedirectToAction("unitList", "Home");
+
+            }
+
+            return View(model);

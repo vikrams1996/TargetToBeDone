@@ -11,11 +11,12 @@ namespace mallform.ViewModel
     {
         public Rent Rent { get; set; }
 
-
         public IEnumerable<Tenant> Tenants { get; set; }
         public IEnumerable<Unit> Units { get; set; }
 
-       public FileUpload Files { get; set; }
-       
+             public string FileDrop { get; set; }
+            public IEnumerable<FileUpload> filePath { get; set; }
+
+        
     }
 }

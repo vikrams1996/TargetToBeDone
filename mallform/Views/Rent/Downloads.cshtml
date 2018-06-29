@@ -1,0 +1,34 @@
+﻿@model IEnumerable<mallform.Models.FileUpload>
+@{
+    ViewBag.Title = "Downloads";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2><strong>Your Files</strong></h2>
+<br />
+<br />
+
+
+@foreach (var file in Model)
+{
+
+ <ul class="download">
+     <li>
+         @Html.ActionLink(
+          "Download Your File",
+          "Download",
+          "Rent",
+           new
+           {
+               ImageName = @file.length
+
+           }
+          ,
+          new { @class = "btn btn-primary btn-large" }
+          )
+     </li>
+ </ul>
+    
+      
+  
+}

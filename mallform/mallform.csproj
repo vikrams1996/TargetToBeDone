@@ -455,8 +455,12 @@
     <Content Include="Views\Rent\leaseUnit.cshtml" />
     <Content Include="Views\Home\leaseStatus.cshtml" />
     <Content Include="Views\Rent\editLease.cshtml" />
+    <Content Include="Views\Rent\Details.cshtml" />
+    <Content Include="Views\Rent\Downloads.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Debug\" />
+    <Folder Include="obj\" />
     <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>

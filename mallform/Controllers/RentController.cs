@@ -13,6 +13,7 @@ namespace mallform.Controllers
     public class RentController : Controller
     {
         private ApplicationDbContext _Context;
+        
 
         public RentController()
         {
@@ -24,17 +25,16 @@ namespace mallform.Controllers
 
             var tenants = _Context.Tenant.ToList();
             var units = _Context.Unit.ToList();
-          
-
+            
             var viewModel = new RentFormViewModel
             {
                 Tenants = tenants,
                 Units = units
-             
+                
 
             };
 
-            return View("leaseUnit", viewModel);
+            return View("leaseUnit", viewModel );
         }
 
 
@@ -55,6 +55,7 @@ namespace mallform.Controllers
                 rentInDb.endDate = Rent.endDate;
                 rentInDb.Amount = Rent.Amount;
                 rentInDb.leaseStatus = Rent.leaseStatus;
+                
                 
             }
 
@@ -84,26 +85,22 @@ namespace mallform.Controllers
             return RedirectToAction("leaseStatus", "Home");
         }
 
-
-
-      
-    
-
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id  )
 
         {
-            var Rent = _Context.Rent.SingleOrDefault(r => r.Id == id);
-            var file = _Context.FileUpload.SingleOrDefault(f => f.ID == id);
-            if (Rent == null)
+           
+            var Rent = _Context.Rent.SingleOrDefault(r =>r.Id == id);
+          
+           
+                if (Rent == null)
                 return HttpNotFound();
 
             var viewModel = new RentFormViewModel
             {
                 Tenants = _Context.Tenant.ToList(),
                 Units = _Context.Unit.ToList(),
-                Rent = Rent,
-                Files = file
-
+                Rent = Rent
+               
             };
 
 
@@ -119,5 +116,37 @@ namespace mallform.Controllers
             return RedirectToAction("leaseStatus", "Home");
         }
 
-    }      
-}
+
+        public ActionResult Details (int id)
+        {
+
+            var leaseStatus = _Context.Rent.Include(u => u.Unit).Include(t => t.Tenant).SingleOrDefault(d => d.Id == id);
+
+            return View(leaseStatus);
+
+
+        }
+     
+        public ActionResult Downloads(int id)
+        {
+            var fl = _Context.FileUpload.Where(f => f.rentId == id);
+            var up = Request.Files["file"];
+            
+         
+
+
+            return View(fl );
+        }
+       
+public FileResult Download(string ImageName )
+      {
+            var FileVirtualPath = Server.MapPath("" + ImageName);
+
+            return File(FileVirtualPath, "application/force-download", Path.GetFileName(FileVirtualPath));
+
+
+        }
+
+    }
+
+}      
