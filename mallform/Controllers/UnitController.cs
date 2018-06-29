@@ -53,7 +53,7 @@ namespace mallform.Controllers
 
             _Context.SaveChanges();
 
-            return RedirectToAction("unitList", "Home");
+            return RedirectToAction("leaseUnit", "Rent");
         }
 
      

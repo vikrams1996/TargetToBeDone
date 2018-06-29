@@ -3,40 +3,59 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="detailsTitle">
-    <h2><strong>Details</strong></h2>
 
-</div>
+<h2>Details</h2>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 9pt;
+        }
+    </style>
+</head>
+<body>
+   
+    <hr />
+    <div id="Grid">
+        <table cellpadding="5" cellspacing="0" style="border: 1px solid #ccc;font-size: 9pt;">
+            <tr>
+                <th style="background-color: #B8DBFD;border: 1px solid #ccc">Tenant Name</th>
+                <th style="background-color: #B8DBFD;border: 1px solid #ccc">Shop Size</th>
+                <th style="background-color: #B8DBFD;border: 1px solid #ccc">Start Date</th>
+                <th style="background-color: #B8DBFD;border: 1px solid #ccc">End Date</th>
+                <th style="background-color: #B8DBFD;border: 1px solid #ccc">Amount</th>
+                
+            </tr>
+            <tr>
+                <td style="width:120px;border: 1px solid #ccc">@Model.Tenant.shopName</td>
+                <td style="width:120px;border: 1px solid #ccc">@Model.Unit.Size</td>
+                <td style="width:120px;border: 1px solid #ccc">@Model.startDate</td>
+                <td style="width:120px;border: 1px solid #ccc">@Model.endDate</td>
+                <td style="width:120px;border: 1px solid #ccc">@Model.Amount</td>
 
-<br >
-<br >
-
-<div class="Details">
-
-    <div class="start">
-        Start Date :     @Model.startDate.ToString("MM / d ")
+            </tr>
+            
+        </table>
     </div>
-    <div class="Status">
 
-        Lease Status : @Model.leaseStatus
-    </div>
+    <br />
+    <br />
 
-    <div class="End">
-
-        End Date : @Model.endDate.ToString("MM / d ")
-
-    </div>
-
-    <div class="Size">
-
-        Unit Size : @Model.Unit.Size
-
-    </div>
-
-    <div class="Amount">
-
-        Amount : @Model.Amount
-
-</div>
-
-</div>
+    @using (Html.BeginForm("Print", "Rent", FormMethod.Post))
+    {
+        <input type="hidden" name="GridHtml" />
+            <input type="submit" id="btnSubmit" value="Print" />
+    }
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnSubmit").click(function () {
+                $("input[name='GridHtml']").val($("#Grid").html());
+            });
+        });
+    </script>
+</body>
+</html>
