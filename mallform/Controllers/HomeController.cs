@@ -39,6 +39,12 @@ namespace mallform.Controllers
             return View(leaseStatus);
         }
 
+        public ActionResult invoiceList()
+        {
+            var invoice = _Context.Invoice.Include(r => r.Rent).ToList();
+
+            return View(invoice);
+        }
        
 
         public ActionResult About()
@@ -54,5 +60,7 @@ namespace mallform.Controllers
 
             return View();
         }
+
+       
     }
 }

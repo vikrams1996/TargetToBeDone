@@ -32,10 +32,12 @@ namespace mallform.Controllers
             var tenants = _Context.Tenant.ToList();
             var units = _Context.Unit.ToList();
 
+
             var viewModel = new RentFormViewModel
             {
                 Tenants = tenants,
-                Units = units
+                Units = units,
+
 
 
             };
@@ -75,14 +77,14 @@ namespace mallform.Controllers
 
 
 
-                var fileName = Path.GetFileName(file.FileName);
-                //var guid = Guid.NewGuid().ToString();
-                var path = Path.Combine(Server.MapPath("~/uploads"), fileName);
+                var fileName = Path.GetFileNameWithoutExtension(file.FileName);
+                var guid = Guid.NewGuid().ToString();
+                var path = Path.Combine(Server.MapPath("~/Rent"), fileName);
                 file.SaveAs(path);
                 string fl = path.Substring(path.LastIndexOf("\\"));
                 string[] split = fl.Split('\\');
                 string newpath = split[1];
-                string imagepath = "~/uploads/" + newpath;
+                string imagepath = newpath;
                 upload.length = imagepath;
                 upload.Rent = rent;
                 _Context.FileUpload.Add(upload);
@@ -91,6 +93,7 @@ namespace mallform.Controllers
             }
             return RedirectToAction("leaseStatus", "Home");
         }
+
 
         public ActionResult Edit(int id)
 
@@ -169,22 +172,112 @@ namespace mallform.Controllers
         [ValidateInput(false)]
         public FileResult Print(string GridHtml)
         {
+
             using (MemoryStream stream = new System.IO.MemoryStream())
             {
                 StringReader sr = new StringReader(GridHtml);
-                Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 100f, 0f);
+                Document pdfDoc = new Document(PageSize.A4, 50f, 100f, 100f, 0f);
                 PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
                 pdfDoc.Open();
+
+                Paragraph para = new Paragraph("INVOICE", new Font(Font.FontFamily.HELVETICA, 22));
+                para.Alignment = Element.ALIGN_CENTER;
+                pdfDoc.Add(para);
                 XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
                 pdfDoc.Close();
                 return File(stream.ToArray(), "application/pdf", "Details.pdf");
             }
 
+        }
 
+
+
+        public ActionResult GenrateInvoice(int id)
+        {
+            {
+
+                var rent = _Context.Rent.Include(t => t.Tenant).First();
+                var rental = _Context.Rent.ToList();
+
+                if (rent== null)
+                    return HttpNotFound();
+
+                var viewModel = new InvoiceViewModel
+                {
+                    
+                   
+                    Rents=rental,
+                    Rent=rent
+
+                   
+                };
+
+
+                return View("GenrateInvoice", viewModel);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Create(Invoice Invoice)
+        {
+
+            if (Invoice.Id==0)
+ 
+                _Context.Invoice.Add(Invoice);
+
+            else
+            {
+              
+
+                var invoiceInDb = _Context.Invoice.Single(r => r.Id == Invoice.Id);
+                invoiceInDb.startMonth = Invoice.startMonth;
+                invoiceInDb.endMonth = Invoice.endMonth;
+                invoiceInDb.InvoiceStatus = Invoice.InvoiceStatus;
+                invoiceInDb.Discription = Invoice.Discription;
+                invoiceInDb.CreatedDate = Invoice.CreatedDate;
+                invoiceInDb.Rent = Invoice.Rent;
+               
+            }
+            
+            _Context.SaveChanges();
+
+
+            return RedirectToAction("invoiceList", "Home");
 
 
 
         }
+        public ActionResult GenratePrint(int id)
+        {
 
+            var invoice = _Context.Invoice.Include(u => u.Rent).SingleOrDefault(d => d.Id == id);
+
+            return View(invoice);
+
+
+        }
+
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public FileResult Genrate(string GridHtml)
+        {
+
+            using (MemoryStream stream = new System.IO.MemoryStream())
+            {
+                StringReader sr = new StringReader(GridHtml);
+                Document pdfDoc = new Document(PageSize.A4, 50f, 100f, 100f, 0f);
+                PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                pdfDoc.Open();
+
+                Paragraph para = new Paragraph("INVOICE", new Font(Font.FontFamily.HELVETICA, 22));
+                para.Alignment = Element.ALIGN_CENTER;
+                pdfDoc.Add(para);
+                XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                pdfDoc.Close();
+                return File(stream.ToArray(), "application/pdf", "Details.pdf");
+            }
+
+        }
     }
-}      
+}

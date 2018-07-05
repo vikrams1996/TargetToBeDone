@@ -38,6 +38,7 @@ namespace mallform.Models
         [Display(Name = "Lease Status ")]
         public string leaseStatus { get; set; }
 
+      
        
       
 

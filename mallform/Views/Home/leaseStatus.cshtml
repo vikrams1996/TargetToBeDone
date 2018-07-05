@@ -11,6 +11,16 @@
 @Html.ActionLink("Add Lease Status", "leaseUnit", "Rent", null, new { @class = "btn btn-primary btn-large" })
 <br>
 <br>
+
+<td>
+    @Html.ActionLink("Invoice List", "invoiceList", "Home", null, new { @class = "btn btn-primary btn-large" })
+
+</td>
+
+<br />
+
+
+
 <table class="table">
     <thead>
         <tr>
@@ -33,6 +43,7 @@
 
                     <td>
                       @Html.ActionLink(Rent.Tenant.shopName , "Details", "Rent", new { id = Rent.Id }, null)
+
                     </td>
                     <td>
                         @Rent.Unit.Size
@@ -90,11 +101,17 @@
 
 
                     </td>
+
                     <td>
-                        @Html.ActionLink("Print Word Doc", "ExportT", "Rent", new { id = Rent.Id }, null)
+                        @Html.ActionLink("Genrate Invoice", "GenrateInvoice", "Rent", new { id = Rent.Id }, null)
 
 
                     </td>
+
+
+                    
+
+                
                     
             </tr>
             </tbody>

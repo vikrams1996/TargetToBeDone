@@ -30,6 +30,8 @@ namespace mallform.Models
         public DbSet<shop> Shop { get; set; }
 
         public DbSet<FileUpload> FileUpload { get; set; }
+
+        public DbSet<Invoice> Invoice { get; set; }
       
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

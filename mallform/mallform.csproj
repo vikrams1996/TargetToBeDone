@@ -384,11 +384,44 @@
     <Compile Include="Migrations\201806260943232_rentid.Designer.cs">
       <DependentUpon>201806260943232_rentid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807021138028_InvoiceTabel.cs" />
+    <Compile Include="Migrations\201807021138028_InvoiceTabel.Designer.cs">
+      <DependentUpon>201807021138028_InvoiceTabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807021140158_RentIdInInoiveTable.cs" />
+    <Compile Include="Migrations\201807021140158_RentIdInInoiveTable.Designer.cs">
+      <DependentUpon>201807021140158_RentIdInInoiveTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807030644212_droper.cs" />
+    <Compile Include="Migrations\201807030644212_droper.Designer.cs">
+      <DependentUpon>201807030644212_droper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807030659074_rentininvoiceji.cs" />
+    <Compile Include="Migrations\201807030659074_rentininvoiceji.Designer.cs">
+      <DependentUpon>201807030659074_rentininvoiceji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807050641089_entititesinInvoice.cs" />
+    <Compile Include="Migrations\201807050641089_entititesinInvoice.Designer.cs">
+      <DependentUpon>201807050641089_entititesinInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807050714565_RemoveEntity.cs" />
+    <Compile Include="Migrations\201807050714565_RemoveEntity.Designer.cs">
+      <DependentUpon>201807050714565_RemoveEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807050759006_TenantFieldInInvoice.cs" />
+    <Compile Include="Migrations\201807050759006_TenantFieldInInvoice.Designer.cs">
+      <DependentUpon>201807050759006_TenantFieldInInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807050906456_RemoveTenant.cs" />
+    <Compile Include="Migrations\201807050906456_RemoveTenant.Designer.cs">
+      <DependentUpon>201807050906456_RemoveTenant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FileUpload.cs" />
     <Compile Include="Models\Floor.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Rent.cs" />
     <Compile Include="Models\shop.cs" />
@@ -396,6 +429,7 @@
     <Compile Include="Models\Tenant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\InvoiceViewModel.cs" />
     <Compile Include="ViewModel\RentFormViewModel.cs" />
     <Compile Include="ViewModel\TenantFormViewModel.cs" />
     <Compile Include="ViewModel\UnitFormViewModel.cs" />
@@ -465,10 +499,14 @@
     <Content Include="Views\Rent\editLease.cshtml" />
     <Content Include="Views\Rent\Downloads.cshtml" />
     <Content Include="Views\Rent\Details.cshtml" />
+    <Content Include="Views\Rent\GenrateInvoice.cshtml" />
+    <Content Include="Views\Home\invoiceList.cshtml" />
+    <Content Include="Views\Rent\GenratePrint.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Debug\" />
     <Folder Include="obj\" />
+    <Folder Include="Rent\" />
     <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>
@@ -614,6 +652,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806260943232_rentid.resx">
       <DependentUpon>201806260943232_rentid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807021138028_InvoiceTabel.resx">
+      <DependentUpon>201807021138028_InvoiceTabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807021140158_RentIdInInoiveTable.resx">
+      <DependentUpon>201807021140158_RentIdInInoiveTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807030644212_droper.resx">
+      <DependentUpon>201807030644212_droper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807030659074_rentininvoiceji.resx">
+      <DependentUpon>201807030659074_rentininvoiceji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807050641089_entititesinInvoice.resx">
+      <DependentUpon>201807050641089_entititesinInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807050714565_RemoveEntity.resx">
+      <DependentUpon>201807050714565_RemoveEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807050759006_TenantFieldInInvoice.resx">
+      <DependentUpon>201807050759006_TenantFieldInInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807050906456_RemoveTenant.resx">
+      <DependentUpon>201807050906456_RemoveTenant.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

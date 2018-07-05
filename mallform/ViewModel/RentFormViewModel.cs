@@ -14,9 +14,12 @@ namespace mallform.ViewModel
         public IEnumerable<Tenant> Tenants { get; set; }
         public IEnumerable<Unit> Units { get; set; }
 
+  
+
              public string FileDrop { get; set; }
             public IEnumerable<FileUpload> filePath { get; set; }
-
+    
+       
         
     }
 }

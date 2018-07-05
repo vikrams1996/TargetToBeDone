@@ -1,0 +1,64 @@
+﻿@model IEnumerable<mallform.Models.Invoice>
+@{
+    ViewBag.Title = "invoiceList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Invoice List </h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Total Amount</th>
+            <th scope="col">Issue Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Amount Paid</th>
+            <th scope="col">Amount Due</th>
+          
+
+
+        </tr>
+    </thead>
+
+    @foreach (var invoice in Model)
+    {
+
+        <tbody>
+            <tr>
+
+
+                <td>
+                    @invoice.Rent.Amount
+                </td>
+                <td>
+                    <div class="Date">
+
+                        <div class="Month">
+                            @invoice.startMonth.ToString("MMM")
+                        </div>
+                        <div class="day">
+                            @invoice.startMonth.ToString("d ")
+                        </div>
+
+                    </div>
+                </td>
+                <td>
+                    <div class="endDate">
+                        <div class="MM">
+                            @invoice.endMonth.ToString("MMM")
+                        </div>
+                        <div class="dd">
+                            @invoice.endMonth.ToString("d ")
+                        </div>
+                    </div>
+                </td>
+                <td>
+                
+                    @Html.ActionLink("Print", "GenratePrint", "Rent", new { id = invoice.Id }, null)
+                </td>   
+
+
+            </tr>
+        </tbody>
+    }
+</table>
+
