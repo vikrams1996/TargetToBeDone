@@ -8,12 +8,12 @@
 <table class="table">
     <thead>
         <tr>
+            <th scope="col">Created On</th>
+            <th scope="col">Start Month</th>
+            <th scope="col">End Month</th>
             <th scope="col">Total Amount</th>
-            <th scope="col">Issue Date</th>
-            <th scope="col">End Date</th>
-            <th scope="col">Amount Paid</th>
-            <th scope="col">Amount Due</th>
-          
+            <th scope="col">Status</th>
+            <th scope="col">Description</th>          
 
 
         </tr>
@@ -24,10 +24,8 @@
 
         <tbody>
             <tr>
-
-
                 <td>
-                    @invoice.Rent.Amount
+                    @invoice.CreatedDate.ToString("MM/dd/yyyy")
                 </td>
                 <td>
                     <div class="Date">
@@ -51,11 +49,22 @@
                         </div>
                     </div>
                 </td>
+                
+                <td>
+                    @invoice.Rent.Amount
+                </td>
+                <td>
+                    @invoice.InvoiceStatus
+                </td>
+                <td>
+                    @invoice.Discription
+                </td>
                 <td>
                 
                     @Html.ActionLink("Print", "GenratePrint", "Rent", new { id = invoice.Id }, null)
                 </td>   
 
+                <td>@Html.ActionLink("Edit", "EditInvoice", "Rent", new { id = invoice.Id }, null)</td>
 
             </tr>
         </tbody>

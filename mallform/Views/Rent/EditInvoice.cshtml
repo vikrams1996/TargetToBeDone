@@ -1,0 +1,54 @@
+﻿@model  mallform.ViewModel.InvoiceViewModel
+@{
+    ViewBag.Title = "EditInvoice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2><strong>EditInvoice</strong></h2>
+
+@using (Html.BeginForm("Create", "Rent"))
+{
+
+   
+
+    <label>
+        Create On
+    </label>
+    @Html.TextBoxFor(x => x.Invoice.CreatedDate, new { @Value = @DateTime.Now.ToShortDateString(), @class = "form-control", @readonly = "readonly" })
+
+    <br />
+
+    @Html.LabelFor(m => m.Invoice.startMonth)
+    @Html.TextBoxFor(m => m.Invoice.startMonth, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+
+    @Html.LabelFor(m => m.Invoice.endMonth)
+    @Html.TextBoxFor(m => m.Invoice.endMonth, new { @class = "form-control ", @readonly = "readonly" })
+    <br />
+    <label>
+        Total Amount
+    </label>
+    @Html.DropDownListFor(m => m.Invoice.rentId, new SelectList(Model.Rents, "Id", "Amount"), "",
+    new { @class = "form-control", @readonly = "readonly" })
+    <br />
+
+
+    @Html.LabelFor(m => m.Invoice.InvoiceStatus)
+    @Html.DropDownListFor(model => model.Invoice.InvoiceStatus, new SelectList(
+                  new List<Object>{
+                       new { value = 0 , text = "Active"  },
+                       new { value = 1 , text = "Paid" }
+                    },
+                  "text",
+                  "text",
+                   0), new { @class = "form-control" })
+    <br />
+
+
+    @Html.LabelFor(m => m.Invoice.Discription)
+    @Html.TextBoxFor(m => m.Invoice.Discription, new { @class = "form-control", @readonly = "readonly" })
+
+    <br />
+
+    <button type="submit" class="btn btn-primary">Genrate</button>
+}

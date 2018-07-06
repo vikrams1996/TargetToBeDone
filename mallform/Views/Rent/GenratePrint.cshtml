@@ -23,17 +23,22 @@
     <div id="Grid">
         <table cellpadding="5" cellspacing="0" style="border: 1px solid #ccc;font-size: 9pt;">
             <tr>
-                <th style="background-color: #B8DBFD;border: 1px solid #ccc">Total Amount</th>
+                <th style="background-color: #B8DBFD;border: 1px solid #ccc">Created On</th>
                 <th style="background-color: #B8DBFD;border: 1px solid #ccc">Issue Date</th>
                 <th style="background-color: #B8DBFD;border: 1px solid #ccc">End Date</th>
-                <th style="background-color: #B8DBFD;border: 1px solid #ccc">Amount Paid</th>
-                <th style="background-color: #B8DBFD;border: 1px solid #ccc">Amount Due</th>
+                <th style="background-color: #B8DBFD;border: 1px solid #ccc">Total Amount</th>
+                <th style="background-color: #B8DBFD;border: 1px solid #ccc">Invoice Status</th>
+                <th style="background-color: #B8DBFD;border: 1px solid #ccc">Description</th>
 
             </tr>
             <tr>
+                <td style="width:120px;border: 1px solid #ccc">@Model.CreatedDate.ToString("MM/dd/yyyy")</td>
+                <td style="width:120px;border: 1px solid #ccc">@Model.startMonth.ToString("MM/dd/yyyy")</td>
+                <td style="width:120px;border: 1px solid #ccc">@Model.endMonth.ToString("MM/dd/yyyy")</td>
                 <td style="width:120px;border: 1px solid #ccc">@Model.Rent.Amount</td>
-                <td style="width:120px;border: 1px solid #ccc">@Model.startMonth</td>
-                <td style="width:120px;border: 1px solid #ccc">@Model.endMonth</td>
+                <td style="width:120px;border: 1px solid #ccc">@Model.InvoiceStatus</td>
+                <td style="width:120px;border: 1px solid #ccc">@Model.Discription</td>
+              
                
 
             </tr>

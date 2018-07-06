@@ -196,7 +196,7 @@ namespace mallform.Controllers
         {
             {
 
-                var rent = _Context.Rent.Include(t => t.Tenant).First();
+                var rent = _Context.Rent.Include(u => u.Unit).Include(t => t.Tenant).SingleOrDefault(d => d.Id == id);
                 var rental = _Context.Rent.ToList();
 
                 if (rent== null)
@@ -278,6 +278,27 @@ namespace mallform.Controllers
                 return File(stream.ToArray(), "application/pdf", "Details.pdf");
             }
 
+        }
+
+        public ActionResult EditInvoice(int id)
+
+        {
+
+            var invoice = _Context.Invoice.SingleOrDefault(i => i.Id == id);
+
+
+            if (invoice == null)
+                return HttpNotFound();
+
+            var viewModel = new InvoiceViewModel
+            {
+               Rents= _Context.Rent.ToList(), 
+               Invoice = invoice
+
+            };
+
+
+            return View("EditInvoice", viewModel);
         }
     }
 }

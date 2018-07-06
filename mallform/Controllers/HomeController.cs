@@ -36,7 +36,7 @@ namespace mallform.Controllers
         {
             var leaseStatus = _Context.Rent.Include(u => u.Unit).Include(t => t.Tenant).ToList();
 
-            return View(leaseStatus);
+            return View(leaseStatus); 
         }
 
         public ActionResult invoiceList()

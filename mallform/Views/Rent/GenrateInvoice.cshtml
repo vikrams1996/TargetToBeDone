@@ -7,11 +7,6 @@
 <h2><strong>Genrate Invoice</strong></h2>
 <br />
 <br />
-<body>
-
-</body>
-<br />
-<br />
 
 
 @using (Html.BeginForm("Create", "Rent"))
@@ -47,7 +42,7 @@
                        new { value = 0 , text = "Active"  },
                        new { value = 1 , text = "Paid" }
                     },
-                  "value",
+                  "text",
                   "text",
                    0), new { @class = "form-control" })
     <br />

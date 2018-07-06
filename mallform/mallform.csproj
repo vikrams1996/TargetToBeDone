@@ -502,6 +502,7 @@
     <Content Include="Views\Rent\GenrateInvoice.cshtml" />
     <Content Include="Views\Home\invoiceList.cshtml" />
     <Content Include="Views\Rent\GenratePrint.cshtml" />
+    <Content Include="Views\Rent\EditInvoice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Debug\" />
