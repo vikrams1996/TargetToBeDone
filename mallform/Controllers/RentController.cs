@@ -300,5 +300,14 @@ namespace mallform.Controllers
 
             return View("EditInvoice", viewModel);
         }
+
+        public ActionResult DeleteInvoice(int id)
+        {
+            _Context.Invoice.Remove(_Context.Invoice.Find(id));
+
+            _Context.SaveChanges();
+
+            return RedirectToAction("invoiceList", "Home");
+        }
     }
 }

@@ -38,11 +38,22 @@ namespace mallform.Controllers
         [HttpPost]
         public ActionResult Save( Unit Unit)
         {
-           
-            if (Unit.Id==0)
-            _Context.Unit.Add(Unit);
+            if (_Context.Unit.Any(u => u.Id != Unit.Id && u.shopId== Unit.shopId))
+            {
+                return HttpNotFound();
+            }
+            if (Unit.Id == 0)
+            {
+                _Context.Unit.Add(Unit);
 
-           else
+            }
+
+           // if(Unit.Id > 0)
+           // {
+           //     ViewBag.Duplicate = "This Shop " + Unit.shopId + "is already in use";
+          //  }
+
+            else
             {
                 var unitInDb = _Context.Unit.Single(c => c.Id == Unit.Id);
 
@@ -53,7 +64,7 @@ namespace mallform.Controllers
 
             _Context.SaveChanges();
 
-            return RedirectToAction("leaseUnit", "Rent");
+            return RedirectToAction("unitList", "Home");
         }
 
      

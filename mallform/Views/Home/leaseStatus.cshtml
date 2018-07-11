@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2><strong>Lease Status</strong></h2>
+<h2><strong>List of Active Leased Units</strong></h2>
 <br>
 @Html.ActionLink("Add Lease Status", "leaseUnit", "Rent", null, new { @class = "btn btn-primary btn-large" })
 <br>
@@ -99,7 +99,7 @@
                     </td>
 
                     <td>
-                        @Html.ActionLink("Genrate Invoice", "GenrateInvoice", "Rent", new { id = Rent.Id }, null)
+                        @Html.ActionLink("Generate Invoice", "GenrateInvoice", "Rent", new { id = Rent.Id }, null)
 
 
                     </td>

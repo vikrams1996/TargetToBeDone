@@ -11,7 +11,7 @@
 {
 
     @Html.LabelFor(m => m.Unit.Size)
-    @Html.TextBoxFor(m => m.Unit.Size, new { @class = "form-control " })
+    @Html.TextBoxFor(m => m.Unit.Size, new { @class = "form-control " ,placeholder ="In Square Feet eg 8000"})
     @Html.ValidationMessageFor(m => m.Unit.Size)
     <br>
     @Html.LabelFor(m => m.Unit.floorId)
@@ -20,7 +20,7 @@
     @Html.ValidationMessageFor(m => m.Unit.floorId)
     <br>
     @Html.LabelFor(m => m.Unit.shopId)
-    @Html.DropDownListFor(m => m.Unit.shopId, new SelectList(Model.Shops, "Id", "Name"), "",
+    @Html.DropDownListFor(m =>m.Unit.shopId, new SelectList(Model.Shops, "Id", "Name"), "",
         new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.Unit.shopId)
     <br>
@@ -28,6 +28,9 @@
 
     <br>
 
+  
+
+    
     <button type="submit" class="btn btn-primary">Add</button>
 
 }

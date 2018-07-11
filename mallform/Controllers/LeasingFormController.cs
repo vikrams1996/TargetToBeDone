@@ -52,7 +52,7 @@ namespace mallform.Controllers
                 _context.SaveChanges();
 
             
-            return RedirectToAction("AddUnit", "Unit");
+            return RedirectToAction("Index", "Home");
         }
 
 
