@@ -1,0 +1,45 @@
+﻿@model IEnumerable<mallform.Models.Tenant>
+@{
+    ViewBag.Title = "ReadOnlyTenant";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<h2><strong>Tenant List</strong></h2>
+<br>
+<br>
+@Html.ActionLink("Add Tenant", "Form", "LeasingForm", null, new { @class = "btn btn-primary btn-large" })
+<br>
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Shop Name</th>
+            <th scope="col">Brand Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Contact No</th>
+            <th scope="col">Pan No</th>
+
+        </tr>
+    </thead>
+    @foreach (var tenant in Model)
+    {
+        <tbody>
+            <tr>
+
+                <td>@tenant.shopName</td>
+                <td>@tenant.brandName</td>
+                <td>@tenant.Address</td>
+                <td>@tenant.mobileNo</td>
+                <td>@tenant.panNo</td>
+              
+        </tr>
+    </tbody>
+
+    }
+</table>
+
+
+

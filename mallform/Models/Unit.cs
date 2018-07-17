@@ -14,12 +14,16 @@ namespace mallform.Models
        
         public string Size { get; set; }
 
+      
         public Floor Floor { get; set; }
 
+        [Required]
         [Display(Name ="Mall Floor")]
         public byte floorId { get; set; }
+       
         public shop Shop { get; set; }
 
+        [Required]
         [Display(Name = "Shop Number")]
         public int shopId { get; set; }
 

@@ -7,14 +7,13 @@
 <h2><strong>List of Active Leased Units</strong></h2>
 <br>
 @Html.ActionLink("Add Lease Status", "leaseUnit", "Rent", null, new { @class = "btn btn-primary btn-large" })
-<br>
-<br>
 
-<td>
-    @Html.ActionLink("Invoice List", "invoiceList", "Home", null, new { @class = "btn btn-primary btn-large" })
+<div class="invoiceButton">
+   
+        @Html.ActionLink("Invoice List", "invoiceList", "Home", null, new { @class = "btn btn-primary btn-large" })
 
-</td>
-
+    
+</div>
 <br />
 <br />
 <table class="table">
@@ -24,7 +23,9 @@
             <th scope="col">Size Chosen</th>
             <th scope="col">Start Date</th>
             <th scope="col">End Date</th>
-            <th scope="col">Amount</th>  
+            <th scope="col">Amount</th> 
+            <th scope="col">Discount Rate</th> 
+            <th scope="col">Total Amount</th>
             <th scope="col">Status</th>    
             
 
@@ -70,9 +71,16 @@
                     <td>
                         <div class= "money">
 
-                            @Rent.Amount
+                            @Rent.Amount Rs
                         </div>
                     </td> 
+                    <td>
+                        @Rent.Discount %
+                    </td>
+
+                    <td>
+                        @Rent.totalAmount Rs
+                    </td>
 
                     <td>
                         <div class="leaseStatus">

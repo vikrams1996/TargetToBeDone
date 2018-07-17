@@ -38,14 +38,18 @@ namespace mallform.Controllers
         [HttpPost]
         public ActionResult Save( Unit Unit)
         {
+          
             if (_Context.Unit.Any(u => u.Id != Unit.Id && u.shopId== Unit.shopId))
             {
-                return HttpNotFound();
+                return Content("shop already occupied");
+                   
+
+
             }
             if (Unit.Id == 0)
             {
                 _Context.Unit.Add(Unit);
-
+             
             }
 
            // if(Unit.Id > 0)
@@ -67,12 +71,12 @@ namespace mallform.Controllers
             return RedirectToAction("unitList", "Home");
         }
 
-     
 
 
 
 
 
+        [Authorize(Roles = "CanManageLeaseStatus")]
         public ActionResult Edit(int id)
 
         {
@@ -92,7 +96,7 @@ namespace mallform.Controllers
 
 
         //DELETE A UNIT
-
+        [Authorize(Roles = "CanManageLeaseStatus")]
         public ActionResult Delete(int id)
 
         {

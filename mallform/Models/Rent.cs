@@ -21,7 +21,7 @@ namespace mallform.Models
         public DateTime endDate { get; set; }
 
 
-        public string Amount { get; set; }
+        public int Amount { get; set; }
        
         public Unit Unit { get; set; }
         
@@ -38,11 +38,11 @@ namespace mallform.Models
         [Display(Name = "Lease Status ")]
         public string leaseStatus { get; set; }
 
-      
-       
-      
+        public int Discount { get; set; }
 
-       
+        public int totalAmount { get; set; }
+        
+        public bool IsDiscountGiven { get; set; }
 
     }
 }

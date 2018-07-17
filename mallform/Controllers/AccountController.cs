@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using mallform.Models;
-
+using Microsoft.AspNet.Identity.EntityFramework;
 namespace mallform.Controllers
 {
     [Authorize]

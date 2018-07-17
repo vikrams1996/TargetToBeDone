@@ -35,7 +35,6 @@
     new {@class="form-control"})
     <br />
 
-
    @Html.LabelFor(m=>m.Invoice.InvoiceStatus)
     @Html.DropDownListFor(model => model.Invoice.InvoiceStatus, new SelectList(
                   new List<Object>{
@@ -47,7 +46,27 @@
                    0), new { @class = "form-control" })
     <br />
 
-    
+
+    if (Model.Rent.IsDiscountGiven == true)
+    {
+       <label>
+          Lease Discount :
+       </label>
+        <p class="alert alert-info">@Model.Rent.Discount %</p>
+
+    }
+    else
+    {
+        <p class="alert alert-info"> No Discount Given</p>
+    }
+
+    <label>
+        Monthly Discount:
+    </label>
+
+    @Html.TextBoxFor(m=>m.Invoice.invoiceDiscount , new { @class = "form-control", type = "number" })
+    <br />
+
     @Html.LabelFor(m=>m.Invoice.Discription)
     @Html.TextBoxFor(m=>m.Invoice.Discription , new { @class = "form-control"})
 

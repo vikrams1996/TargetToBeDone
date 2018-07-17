@@ -50,8 +50,13 @@ namespace mallform.Controllers
         public ActionResult Save(Rent Rent, Models.FileUpload upload, HttpPostedFileBase file)
         {
 
-            if (Rent.Id == 0)
+            Rent.totalAmount = 0;
+
+           Rent.totalAmount  = Rent.Amount - ((Rent.Amount * Rent.Discount) / 100);
+
+                if (Rent.Id == 0) {
                 _Context.Rent.Add(Rent);
+            }
 
             else
             {
@@ -63,8 +68,8 @@ namespace mallform.Controllers
                 rentInDb.endDate = Rent.endDate;
                 rentInDb.Amount = Rent.Amount;
                 rentInDb.leaseStatus = Rent.leaseStatus;
-
-
+                rentInDb.totalAmount = Rent.totalAmount;
+                rentInDb.IsDiscountGiven = Rent.IsDiscountGiven;
             }
 
             _Context.SaveChanges();
@@ -74,9 +79,6 @@ namespace mallform.Controllers
             var up = Request.Files["file"];
             if (up.ContentLength > 0)
             {
-
-
-
                 var fileName = Path.GetFileNameWithoutExtension(file.FileName);
                 var guid = Guid.NewGuid().ToString();
                 var path = Path.Combine(Server.MapPath("~/Rent"), fileName);
@@ -89,12 +91,11 @@ namespace mallform.Controllers
                 upload.Rent = rent;
                 _Context.FileUpload.Add(upload);
                 _Context.SaveChanges();
-
             }
             return RedirectToAction("leaseStatus", "Home");
         }
 
-
+        [Authorize(Roles = "CanManageLeaseStatus")]
         public ActionResult Edit(int id)
 
         {
@@ -116,7 +117,7 @@ namespace mallform.Controllers
 
             return View("editLease", viewModel);
         }
-
+        [Authorize(Roles = "CanManageLeaseStatus")]
         public ActionResult Delete(int id)
         {
             _Context.Rent.Remove(_Context.Rent.Find(id));
@@ -192,10 +193,11 @@ namespace mallform.Controllers
 
 
 
-        public ActionResult GenrateInvoice(int id)
+        public ActionResult GenrateInvoice(int id ,Rent Rent , Invoice Invoice )
         {
             {
 
+               
                 var rent = _Context.Rent.Include(u => u.Unit).Include(t => t.Tenant).SingleOrDefault(d => d.Id == id);
                 var rental = _Context.Rent.ToList();
 
@@ -279,7 +281,7 @@ namespace mallform.Controllers
             }
 
         }
-
+        [Authorize(Roles = "CanManageLeaseStatus")]
         public ActionResult EditInvoice(int id)
 
         {
@@ -300,7 +302,7 @@ namespace mallform.Controllers
 
             return View("EditInvoice", viewModel);
         }
-
+        [Authorize(Roles = "CanManageLeaseStatus")]
         public ActionResult DeleteInvoice(int id)
         {
             _Context.Invoice.Remove(_Context.Invoice.Find(id));

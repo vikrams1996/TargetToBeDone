@@ -1,0 +1,40 @@
+﻿@model IEnumerable<mallform.Models.Unit>
+@{
+    ViewBag.Title = "ReadOnlyUnit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2><strong>List of Units</strong></h2>
+<br>
+
+@Html.ActionLink("Add Unit", "AddUnit", "Unit", null, new { @class = "btn btn-primary btn-large" })
+<br>
+<br>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Shop Size (In Square Feet)</th>
+            <th scope="col">Floor</th>
+            <th scope="col">Shop Number</th>
+
+        </tr>
+    </thead>
+    @foreach (var unit in Model)
+    {
+
+
+
+        <tbody class="leaseStatus">
+            <tr>
+
+                <td>@unit.Size</td>
+                <td>@unit.Floor.Name</td>
+                <td>@unit.Shop.Name</td>
+
+        </tr>
+    </tbody>
+
+    }
+</table>

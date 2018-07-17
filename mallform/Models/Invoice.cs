@@ -23,6 +23,9 @@ namespace mallform.Models
 
         [Display(Name = "Total Amount ")]
         public int rentId { get; set; }
+
+        public int invoiceDiscount { get; set; }
+
       
         
 

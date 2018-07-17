@@ -1,0 +1,111 @@
+﻿@model IEnumerable<mallform.Models.Rent>
+@{
+    ViewBag.Title = "ReadOnlyLease";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2><strong>List of Active Leased Units</strong></h2>
+<br>
+@Html.ActionLink("Add Lease Status", "leaseUnit", "Rent", null, new { @class = "btn btn-primary btn-large" })
+
+<div class="invoiceButton">
+    @Html.ActionLink("Invoice List", "invoiceList", "Home", null, new { @class = "btn btn-primary btn-large" })
+
+
+</div>
+<br />
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Tenant</th>
+            <th scope="col">Size Chosen</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Status</th>
+
+
+        </tr>
+    </thead>
+
+    @foreach (var Rent in Model)
+    {
+
+        <tbody>
+            <tr>
+
+                <td>
+                    @Html.ActionLink(Rent.Tenant.shopName, "Details", "Rent", new { id = Rent.Id }, null)
+
+                </td>
+                <td>
+                    @Rent.Unit.Size
+                </td>
+
+                <td>
+                    <div class="Date">
+
+                        <div class="Month">
+                            @Rent.startDate.ToString("MMM")
+                        </div>
+                        <div class="day">
+                            @Rent.startDate.ToString("d ")
+                        </div>
+
+                    </div>
+                </td>
+                <td>
+                    <div class="endDate">
+                        <div class="MM">
+                            @Rent.endDate.ToString("MMM")
+                        </div>
+                        <div class="dd">
+                            @Rent.endDate.ToString("d ")
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="money">
+
+                        @Rent.Amount
+                    </div>
+                </td>
+
+                <td>
+                    <div class="leaseStatus">
+
+                        @Rent.leaseStatus
+                    </div>
+                </td>
+
+
+
+
+
+               
+               
+
+
+                <td>
+                    @Html.ActionLink("Uploaded Files", "Downloads", "Rent", new { id = Rent.Id }, null)
+
+
+                </td>
+
+                <td>
+                    @Html.ActionLink("Generate Invoice", "GenrateInvoice", "Rent", new { id = Rent.Id }, null)
+
+
+                </td>
+
+
+
+
+
+
+            </tr>
+        </tbody>
+    }
+</table>

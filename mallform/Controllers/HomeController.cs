@@ -20,30 +20,42 @@ namespace mallform.Controllers
         }
         public ActionResult Index()
         {
-            var tenant = _Context.Tenant;
+            
 
-            return View(tenant);
+                var tenant = _Context.Tenant;
+            if (User.IsInRole("CanManageLeaseStatus"))
+
+                return View("Index",tenant);
+                return View("ReadOnlyTenant",tenant);
+
+            
         }
 
         public ActionResult unitList()
         {
             var unit = _Context.Unit.Include(f=>f.Floor).Include(s=>s.Shop).ToList();
-
-            return View(unit);
+            if (User.IsInRole("CanManageLeaseStatus"))
+            return View("unitList",unit);
+            return View("ReadOnlyUnit", unit);
         }
 
         public ActionResult leaseStatus()
         {
             var leaseStatus = _Context.Rent.Include(u => u.Unit).Include(t => t.Tenant).ToList();
+            if (User.IsInRole("CanManageLeaseStatus"))
+               
+            return View("leaseStatus",leaseStatus);
+            return View("ReadOnlyLease", leaseStatus);
 
-            return View(leaseStatus); 
+
         }
 
         public ActionResult invoiceList()
         {
-            var invoice = _Context.Invoice.Include(r => r.Rent).ToList();
-
-            return View(invoice);
+            var invoice = _Context.Invoice.Include(r => r.Rent.Tenant).ToList();
+            if (User.IsInRole("CanManageLeaseStatus"))
+            return View("invoiceList",invoice);
+            return View("ReadOnlyInvoice", invoice);
         }
        
 

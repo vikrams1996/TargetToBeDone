@@ -32,6 +32,24 @@
             @Html.TextBoxFor(m => m.Rent.Amount, new { @class = "form-control", placeholder = "In Rupees" })
             <br>
 
+    @Html.LabelFor(model => model.Rent.Discount)
+    @Html.TextBoxFor(model => model.Rent.Discount, new { @class = "form-control", type = "number" })
+
+
+
+    <br />
+
+    <div class="checkbox">
+        <label>
+           @Html.CheckBoxFor(model=>model.Rent.IsDiscountGiven)  Is Discount Given ?
+        </label>
+    </div>
+
+   
+
+
+
+
     @Html.LabelFor(m => m.Rent.leaseStatus)
     @Html.DropDownListFor(model => model.Rent.leaseStatus, new SelectList(
                       new List<Object>{
@@ -43,6 +61,7 @@
                       "text",
                        0), new { @class = "form-control" })
     <br>
+
 
 
     <label for="file">Upload File:</label>

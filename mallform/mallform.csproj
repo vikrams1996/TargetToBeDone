@@ -416,6 +416,38 @@
     <Compile Include="Migrations\201807050906456_RemoveTenant.Designer.cs">
       <DependentUpon>201807050906456_RemoveTenant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807120633277_SeedUsers.cs" />
+    <Compile Include="Migrations\201807120633277_SeedUsers.Designer.cs">
+      <DependentUpon>201807120633277_SeedUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807160616500_ApllyDAToUnit.cs" />
+    <Compile Include="Migrations\201807160616500_ApllyDAToUnit.Designer.cs">
+      <DependentUpon>201807160616500_ApllyDAToUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807170837352_DiscountToRent.cs" />
+    <Compile Include="Migrations\201807170837352_DiscountToRent.Designer.cs">
+      <DependentUpon>201807170837352_DiscountToRent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807170957307_IntIdsocunt.cs" />
+    <Compile Include="Migrations\201807170957307_IntIdsocunt.Designer.cs">
+      <DependentUpon>201807170957307_IntIdsocunt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807171003550_IntAmountToRent.cs" />
+    <Compile Include="Migrations\201807171003550_IntAmountToRent.Designer.cs">
+      <DependentUpon>201807171003550_IntAmountToRent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807171031132_totalAmountInRent.cs" />
+    <Compile Include="Migrations\201807171031132_totalAmountInRent.Designer.cs">
+      <DependentUpon>201807171031132_totalAmountInRent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807171102576_DiscountCheckBox.cs" />
+    <Compile Include="Migrations\201807171102576_DiscountCheckBox.Designer.cs">
+      <DependentUpon>201807171102576_DiscountCheckBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807171151420_invoiceDiscountInInvoice.cs" />
+    <Compile Include="Migrations\201807171151420_invoiceDiscountInInvoice.Designer.cs">
+      <DependentUpon>201807171151420_invoiceDiscountInInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FileUpload.cs" />
@@ -503,6 +535,10 @@
     <Content Include="Views\Home\invoiceList.cshtml" />
     <Content Include="Views\Rent\GenratePrint.cshtml" />
     <Content Include="Views\Rent\EditInvoice.cshtml" />
+    <Content Include="Views\Home\ReadOnlyTenant.cshtml" />
+    <Content Include="Views\Home\ReadOnlyUnit.cshtml" />
+    <Content Include="Views\Home\ReadOnlyLease.cshtml" />
+    <Content Include="Views\Home\ReadOnlyInvoice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Debug\" />
@@ -677,6 +713,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807050906456_RemoveTenant.resx">
       <DependentUpon>201807050906456_RemoveTenant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807120633277_SeedUsers.resx">
+      <DependentUpon>201807120633277_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807160616500_ApllyDAToUnit.resx">
+      <DependentUpon>201807160616500_ApllyDAToUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807170837352_DiscountToRent.resx">
+      <DependentUpon>201807170837352_DiscountToRent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807170957307_IntIdsocunt.resx">
+      <DependentUpon>201807170957307_IntIdsocunt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807171003550_IntAmountToRent.resx">
+      <DependentUpon>201807171003550_IntAmountToRent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807171031132_totalAmountInRent.resx">
+      <DependentUpon>201807171031132_totalAmountInRent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807171102576_DiscountCheckBox.resx">
+      <DependentUpon>201807171102576_DiscountCheckBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807171151420_invoiceDiscountInInvoice.resx">
+      <DependentUpon>201807171151420_invoiceDiscountInInvoice.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

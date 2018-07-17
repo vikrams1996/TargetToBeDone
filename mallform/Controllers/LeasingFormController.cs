@@ -22,7 +22,7 @@ namespace mallform.Controllers
         public ActionResult Form()
         {
 
-
+           
 
             return View();
         }
@@ -56,8 +56,8 @@ namespace mallform.Controllers
         }
 
 
-
-            public ActionResult Update (int id)
+        [Authorize(Roles = "CanManageLeaseStatus")]
+        public ActionResult Update (int id)
         {
 
             
@@ -68,6 +68,7 @@ namespace mallform.Controllers
 
         [HttpPost]
 
+        [Authorize(Roles = "CanManageLeaseStatus")]
         public ActionResult Update (Tenant Model)
         {
          
@@ -86,7 +87,7 @@ namespace mallform.Controllers
         
 
         }
-
+        [Authorize(Roles = "CanManageLeaseStatus")]
         public ActionResult Delete (int id)
         {
 

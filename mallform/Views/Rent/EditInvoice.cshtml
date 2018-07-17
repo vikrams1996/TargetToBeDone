@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2><strong>EditInvoice</strong></h2>
+<h2><strong>Edit Invoice</strong></h2>
 
 @using (Html.BeginForm("Create", "Rent"))
 {
@@ -19,11 +19,11 @@
     <br />
 
     @Html.LabelFor(m => m.Invoice.startMonth)
-    @Html.TextBoxFor(m => m.Invoice.startMonth, new { @class = "form-control", @readonly = "readonly" })
+    @Html.TextBoxFor(m => m.Invoice.startMonth, "{0:d MMM yyyy}" , new { @class = "form-control", @readonly = "readonly" })
     <br />
 
     @Html.LabelFor(m => m.Invoice.endMonth)
-    @Html.TextBoxFor(m => m.Invoice.endMonth, new { @class = "form-control ", @readonly = "readonly" })
+    @Html.TextBoxFor(m => m.Invoice.endMonth, "{0:d MMM yyyy}" , new { @class = "form-control ", @readonly = "readonly" })
     <br />
     <label>
         Total Amount
@@ -51,6 +51,6 @@
     <br />
 
     @Html.HiddenFor(m => m.Invoice.Id)
-
-    <button type="submit" class="btn btn-primary">Genrate</button>
+   
+    <button type="submit" class="btn btn-primary">Save</button>
 }
