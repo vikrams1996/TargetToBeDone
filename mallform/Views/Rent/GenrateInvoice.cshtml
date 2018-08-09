@@ -28,11 +28,14 @@
     @Html.LabelFor(m => m.Invoice.endMonth)
     @Html.TextBoxFor(m => m.Invoice.endMonth, new { @class = "form-control " })
     <br />
+   
    <label>
-       Total Amount
+       Tenant Amount : 
    </label>
-   @Html.DropDownListFor(m=>m.Invoice.rentId , new SelectList(Model.Rents , "Id" , "Amount"),"" ,
-    new {@class="form-control"})
+   @Html.TextBoxFor(m=>m.Rent.Amount , new { @class = "form-control", @readonly = "readonly" })
+
+//  @Html.DropDownListFor(m=>m.Invoice.rentId , new SelectList(Model.Rents , "Id" , "Amount"),"" ,
+// new {@class="form-control"})
     <br />
 
    @Html.LabelFor(m=>m.Invoice.InvoiceStatus)
@@ -45,6 +48,8 @@
                   "text",
                    0), new { @class = "form-control" })
     <br />
+
+   
 
 
     if (Model.Rent.IsDiscountGiven == true)
@@ -61,17 +66,19 @@
     }
 
     <label>
-        Monthly Discount:
+       Monthly Discount?
     </label>
-
-    @Html.TextBoxFor(m=>m.Invoice.invoiceDiscount , new { @class = "form-control", type = "number" })
+    @Html.TextBoxFor(model => model.Invoice.invoiceDiscount, new { @class = "form-control", type = "number" })
     <br />
 
     @Html.LabelFor(m=>m.Invoice.Discription)
     @Html.TextBoxFor(m=>m.Invoice.Discription , new { @class = "form-control"})
 
     <br />
+   
     @Html.HiddenFor(m => m.Invoice.Id)
+  
 
+   
     <button type="submit" class="btn btn-primary" >Generate</button>
 } 

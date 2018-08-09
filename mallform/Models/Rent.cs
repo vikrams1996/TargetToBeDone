@@ -22,13 +22,8 @@ namespace mallform.Models
 
 
         public int Amount { get; set; }
-       
-        public Unit Unit { get; set; }
-        
-
-        [Display(Name = "Unit Size")]
-        public int unitId { get; set; }
-       
+     
+    
         public Tenant Tenant { get; set; }
        
         [Display(Name = "Tenant ")]
@@ -43,6 +38,11 @@ namespace mallform.Models
         public int totalAmount { get; set; }
         
         public bool IsDiscountGiven { get; set; }
+
+    
+  
+   
+    
 
     }
 }

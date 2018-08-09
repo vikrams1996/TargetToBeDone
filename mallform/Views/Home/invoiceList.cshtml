@@ -12,6 +12,7 @@
             <th scope="col">Created On</th>
             <th scope="col">Start Month</th>
             <th scope="col">End Month</th>
+            <th scope="col">Discount</th>
             <th scope="col">Total Amount</th>
             <th scope="col">Status</th>
             <th scope="col">Description</th>          
@@ -25,9 +26,9 @@
 
         <tbody>
             <tr>
-               <td>
-             @invoice.Rent.Tenant.shopName
-               </td>
+                <td>
+                    @invoice.Rent.Tenant.shopName
+                </td>
                 <td>
                     @invoice.CreatedDate.ToString("MM/dd/yyyy")
                 </td>
@@ -53,9 +54,11 @@
                         </div>
                     </div>
                 </td>
-                
                 <td>
-                    @invoice.Rent.Amount
+                    @invoice.invoiceDiscount %
+                </td>
+                <td>
+                  @invoice.totalAmount Rs
                 </td>
                 <td>
                     @invoice.InvoiceStatus
@@ -64,9 +67,10 @@
                     @invoice.Discription
                 </td>
                 <td>
-                
+
                     @Html.ActionLink("Print", "GenratePrint", "Rent", new { id = invoice.Id }, null)
-                </td>   
+                </td>
+
 
                 <td>@Html.ActionLink("Edit", "EditInvoice", "Rent", new { id = invoice.Id }, null)</td>
 

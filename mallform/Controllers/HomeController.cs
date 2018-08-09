@@ -41,7 +41,7 @@ namespace mallform.Controllers
 
         public ActionResult leaseStatus()
         {
-            var leaseStatus = _Context.Rent.Include(u => u.Unit).Include(t => t.Tenant).ToList();
+            var leaseStatus = _Context.Rent./*Include(s=>s.Shop).*/Include(t => t.Tenant).ToList();
             if (User.IsInRole("CanManageLeaseStatus"))
                
             return View("leaseStatus",leaseStatus);

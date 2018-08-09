@@ -23,7 +23,7 @@
         <table cellpadding="5" cellspacing="0" style="border: 1px solid #ccc;font-size: 9pt;">
             <tr>
                 <th style="background-color: #B8DBFD;border: 1px solid #ccc">Tenant Name</th>
-                <th style="background-color: #B8DBFD;border: 1px solid #ccc">Shop Size</th>
+                <th style="background-color: #B8DBFD;border: 1px solid #ccc">Shop Number</th>
                 <th style="background-color: #B8DBFD;border: 1px solid #ccc">Start Date</th>
                 <th style="background-color: #B8DBFD;border: 1px solid #ccc">End Date</th>
                 <th style="background-color: #B8DBFD;border: 1px solid #ccc">Amount</th>
@@ -31,7 +31,7 @@
             </tr>
             <tr>
                 <td style="width:120px;border: 1px solid #ccc">@Model.Tenant.shopName</td>
-                <td style="width:120px;border: 1px solid #ccc">@Model.Unit.Size</td>
+                @*<td style="width:120px;border: 1px solid #ccc">@Model.Shop.Name</td>*@
                 <td style="width:120px;border: 1px solid #ccc">@Model.startDate.ToString("MM/dd/yyyy")</td>
                 <td style="width:120px;border: 1px solid #ccc">@Model.endDate.ToString("MM/dd/yyyy")</td>
                 <td style="width:120px;border: 1px solid #ccc">@Model.Amount</td>
@@ -44,7 +44,7 @@
     <br />
     <br />
 
-    @using (Html.BeginForm("Print", "Rent", FormMethod.Post))
+    @*@using (Html.BeginForm("Print", "Rent", FormMethod.Post))
     {
         <input type="hidden" name="GridHtml" />
             <input type="submit" id="btnSubmit" value="Print" />
@@ -56,6 +56,6 @@
                 $("input[name='GridHtml']").val($("#Grid").html());
             });
         });
-    </script>
+    </script>*@
 </body>
 </html>

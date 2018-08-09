@@ -15,9 +15,9 @@
     @Html.DropDownListFor(m => m.Rent.tenantId, new SelectList(Model.Tenants, "Id", "shopName"), "Select Tenant",
         new { @class = "form-control" })
     <br>
-    @Html.LabelFor(m => m.Rent.unitId)
-    @Html.DropDownListFor(m => m.Rent.unitId, new SelectList(Model.Units, "Id", "Size"), "Select Size",
-        new { @class = "form-control" })
+    @*@Html.LabelFor(m => m.Rent.shopId)
+    @Html.DropDownListFor(m => m.Rent.shopId, new SelectList(Model.Shops, "Id", "Name"), "Select Shop",
+        new { @class = "form-control" })*@
     <br>
     @Html.LabelFor(model => model.Rent.startDate)
 

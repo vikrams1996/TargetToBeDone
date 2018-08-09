@@ -13,6 +13,12 @@ namespace mallform.ViewModel
         public Invoice Invoice { get; set; }
         public Rent Rent { get; set; }
         public IEnumerable<Rent> Rents { get; set; }
-     
+
+
+        public int rentId { get; set; }
+        public string amount { get; set; }
+       
+
+
     }
 }

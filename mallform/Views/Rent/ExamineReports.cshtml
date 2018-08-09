@@ -1,0 +1,91 @@
+﻿@model IEnumerable<mallform.Models.Invoice>
+    @{
+        ViewBag.Title = "ExamineReports";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h2>Payment Reports</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Tenant</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Lease Status</th>
+            <th scope="col">Payment Status</th>
+            
+           
+            
+
+        </tr>
+    </thead>
+    @foreach (var report in Model)
+    {
+
+
+
+        <tbody class="leaseStatus">
+            <tr>
+                <td>@report.Rent.Tenant.shopName</td>
+                <td>@report.Rent.Amount</td>
+                <td> @if (report.Rent.leaseStatus == "Active")
+                     {
+                         <label>
+                          Active
+                        </label>
+                     }
+
+                    else
+                    {
+                     <label>
+                        Closed
+                     </label>
+                     }
+                   </td>
+                <td>
+                    @if (report.InvoiceStatus == "New")
+                    {
+                        <label>
+                            Not Paid
+                        </label>
+                    }
+                    else
+                    {
+                        <label>
+                            Paid
+                        </label>
+                    }
+                </td>
+               
+                
+
+                
+               
+
+        </tr>
+    </tbody>
+
+    }
+</table>
+
+@*@foreach (var report in Model)
+{
+
+    @report.Rent.Tenant.shopName
+
+    if (report.Rent.leaseStatus == "Active")
+    {
+      <label>
+          Due
+      </label>
+    }
+
+    else
+    {
+        <label>
+            Paid
+        </label>
+    }
+
+}*@
+

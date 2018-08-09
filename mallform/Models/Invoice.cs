@@ -9,8 +9,11 @@ namespace mallform.Models
     public class Invoice
     {
         public int Id { get; set; }
+
+        [Display(Name = "Start Date")]
         public DateTime startMonth { get; set; }
 
+        [Display(Name = "End Date")]
         public DateTime endMonth { get; set; }
 
         public DateTime CreatedDate { get; set;
@@ -21,15 +24,11 @@ namespace mallform.Models
 
         public Rent Rent { get; set; }
 
-        [Display(Name = "Total Amount ")]
         public int rentId { get; set; }
 
         public int invoiceDiscount { get; set; }
 
-      
-        
-
-
+        public int totalAmount { get; set; }
 
     }
 }
